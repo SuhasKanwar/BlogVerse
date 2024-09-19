@@ -1,0 +1,22 @@
+{
+  "name": "project_017_blogverse",
+  "version": "1.0.0",
+  "description": "The AI-Powered Blogging Platform is an innovative website where users can create and share blog posts while enjoying personalized content recommendations. Leveraging AI, the platform suggests relevant posts based on user preferences, offering a tailored reading experience. It features user authentication, interactive commenting, and responsive design for seamless accessibility.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Suhas Kanwar",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "groq-sdk": "^0.7.0",
+    "mongoose": "^8.5.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

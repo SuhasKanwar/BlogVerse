@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: calibri;
+}
+body{
+    background-color: #f0e6e6;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-container{
+    height: 70vh;
+    width: 70vw;
+    color: azure;
+}
