@@ -25,10 +25,8 @@ app.use(logReqRes("log.txt"));
 
 // Routing
 const staticRouter = require('./routes/index');
-// const userRouter = require('./routes/users');
 
 app.use('/', staticRouter);
-// app.use('/user', userRouter);
 
 app.listen(PORT, (error) => {
     if(error){
