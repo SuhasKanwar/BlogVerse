@@ -1,20 +1,119 @@
 :root{
     --background-color-1: #1E1E1E;
     --background-color-2: #ffffff;
-    --primary-font: "Inria Serif";
+    --primary-font: 'Inria Serif';
     --secondaty-font: "Inter";
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
 }
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: calibri;
 }
 body{
     height: 100vh;
     width: 100vw;
+    overflow-x: hidden;
 }
 .container{
     height: 100%;
     width: 100%;
+    background-color: var(--background-color-1);
+    display: flex;
+    flex-direction: column;
+}
+header{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    color: var(--primary-color);
+    font-family: var(--secondaty-font);
+    font-size: 1.325rem;
+    font-weight: bold;
+}
+.logo-img{
+    height: 2.5rem;
+}
+.header-links{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+.left-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.logo-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+}
+.login-nav-link-2 a{
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.hero-container{
+    width: 100vw;
+    color: var(--primary-color);
+    font-family: var(--primary-font);
+    margin: 5vw;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.hero-text-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.hero-heading{
+    font-size: 3.9rem;
+}
+.hero-text{
+    width: 45%;
+    font-size: 1.275rem;
+}
+.hero-button{
+    width: fit-content;
+    background-color: var(--primary-color);
+    color: #101517;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--primary-font);
+    font-weight: bold;
+    font-size: 1.15rem;
+}
+a, button{
+    cursor: pointer;
+}
+.display-image-container{
+    width: 85vw;
+    align-self: center;
+    background-color: #C5C0C0;
+    border-radius: 25px;
+    z-index: 10;
+}
+.display-image-container img{
+    width: 100%;
+}
+.features-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color-2);
 }
