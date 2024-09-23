@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('partials/head') %>
+        <link rel="stylesheet" href="styles/greet.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="greet-heading">Let's start your blog, <p class="user-name">Suhas Kanwar</p>!</h1>
+            <div class="option-container" id="option-container-1">
+                <div class="text-container">
+                    <div class="img-container">
+                        <img src="images/greet-logo-1.png" alt="greet-logo-1">
+                    </div>
+                    <p class="text">Write your first post</p>
+                </div>
+                <button class="greet-btn"><a href="#">Start Writing</a></button>
+            </div>
+            <div class="option-container" id="option-container-2">
+                <div class="text-container">
+                    <div class="img-container">
+                        <img src="images/greet-logo-2.png" alt="greet-logo-2">
+                    </div>
+                    <p class="text">Pick a design firsrt</p>
+                </div>
+                <button class="greet-btn"><a href="#">View Design</a></button>
+            </div>
+        </div>
+        <script src="greet.js"></script>
+    </body>
+</html>
