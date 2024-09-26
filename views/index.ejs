@@ -3,6 +3,7 @@
     <head>
         <%- include('partials/head') %>
         <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/header.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
@@ -13,34 +14,14 @@
     <body>
         
         <div class="container">
-            <header>
-                <div class="left-container">
-                    <div class="logo-container">
-                        <img src="images/favicon.png" alt="BlogVerse-logo" class="logo-img">
-                        <p class="logo-text">BlogVerse.com</p>
-                    </div>
-                    <a href="#" class="blogs-header-container header-links">
-                        Blogs
-                    </a>
-                </div>
-                <div class="right-container">
-                    <nav class="nav-container">
-                        <div class="login-nav-container">
-                            <a href="/login" class="header-links">Login</a>
-                        </div>
-                        <div class="login-nav-link-2">
-                            <a href="#">Get Started</a>
-                        </div>
-                    </nav>
-                </div>
-            </header>
+            <%- include('partials/header') %>
 
             <main class="hero-container">
                 <div class="hero-text-container">
                     <h1 class="hero-heading">Blog with the best.</h1>
                     <p class="hero-text">More bloggers and independent creators choose BlogVerse than any other blogging tool. Tap into intuitive, flexible tools that put writers, bloggers, and creators first.</p>
                 </div>
-                <a href="#"><button class="hero-button">Start a Blog</button></a>
+                <a href="/greet"><button class="hero-button">Start a Blog</button></a>
             </main>
 
             <div class="display-image-container" id="display-image-container-1">

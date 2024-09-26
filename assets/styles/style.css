@@ -23,49 +23,6 @@ body{
     display: flex;
     flex-direction: column;
 }
-header{
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
-    color: var(--primary-color);
-    font-family: var(--secondaty-font);
-    font-size: 1.325rem;
-    font-weight: bold;
-}
-.logo-img{
-    height: 2.5rem;
-}
-.header-links{
-    text-decoration: none;
-    color: var(--primary-color);
-}
-.left-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-.nav-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-.logo-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0.2rem;
-}
-.login-nav-link-2 a{
-    color: var(--primary-color);
-    text-decoration: none;
-}
 .hero-container{
     width: 100vw;
     color: var(--primary-color);
