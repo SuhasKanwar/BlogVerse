@@ -1,7 +1,7 @@
 :root{
     --background-color-1: #1E1E1E;
     --background-color-2: #ffffff;
-    --background-color-3: #111111;
+    --background-color-3: #262626;
     --primary-font: 'Inria Serif';
     --secondaty-font: "Inter";
     --collections-font: 'Jomhuria';
@@ -27,15 +27,71 @@ body{
     height: 100%;
     min-height: 100vh;
     background-color: var(--background-color-3);
-    padding: 3rem 7rem 0;
+    padding: 3rem 12rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
 }
 .collections-heading{
-    color: var(--primary-color);
+    color: #FCF5F5;
     font-family: var(--collections-font);
     font-size: 15rem;
     font-weight: 100;
+    height: fit-content;
+}
+.collections-cards-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 1.5rem;
+    color: var(--primary-color);
+}
+.collections-head{
+    font-family: var(--collections-font);
+    font-size: 17rem;
+    color: #FCF5F5;
+    font-weight: 100;
+}
+.blog-card-container{
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1rem;
+}
+.blog-cover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 23rem;
+    width: 18rem;
+    background-color: black;
+    border-radius: 20px;
+    font-size: 1.75rem;
+    font-family: var(--secondaty-font);
+    font-weight: 700;
+}
+.card-scorll-container{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    width: 100%;
+}
+.card{
+    height: 23rem;
+    width: 18rem;
+    background-color: var(--background-color-2);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 1.2rem;
+    color: var(--secondary-color);
+}
+.cover-img{
+    width: 13rem;
+    margin: 0 auto;
 }
