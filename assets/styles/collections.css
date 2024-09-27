@@ -80,6 +80,7 @@ body{
     flex-direction: row;
     overflow-x: scroll;
     width: 100%;
+    gap: 0.5rem;
 }
 .card{
     height: 23rem;
@@ -90,6 +91,7 @@ body{
     border-radius: 20px;
     padding: 1.2rem;
     color: var(--secondary-color);
+    gap: 0.4rem;
 }
 .cover-img{
     width: 13rem;
