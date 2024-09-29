@@ -4,13 +4,8 @@
         <%- include('partials/head') %>
         <link rel="stylesheet" href="styles/collections.css">
         <link rel="stylesheet" href="styles/header.css">
+        <link rel="stylesheet" href="styles/footer.css">
         <link rel="stylesheet" href="styles/scrollbar.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="container">
@@ -25,196 +20,26 @@
                 <div class="collections-cards-container">
                     <h2 class="collections-head">Collections</h2>
 
-                    <div class="blog-card-container">
-                        <div class="blog-cover">Food Blogs</div>
-                        <div class="card-scorll-container">
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
+                    <% const categories = ['Food Blogs', 'Travel Blogs', 'Tech Blogs', 'Lifestyle Blogs', 'Fashion Blogs']; %>
+                    <% categories.forEach(category => { %>
+                        <div class="blog-card-container">
+                            <div class="blog-cover"><%= category %></div>
+                            <div class="card-scroll-container">
+                                <% for (let i = 0; i < 10; i++) { %>
+                                    <div class="card">
+                                        <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
+                                        <h3 class="blog-head">Healthy Eating Tips</h3>
+                                        <p class="blog-description">
+                                            Discover simple tips for maintaining a healthy diet and making nutritious food choices.
+                                        </p>
+                                    </div>
+                                <% } %>
                             </div>
                         </div>
-                    </div>
-                    <div class="blog-card-container">
-                        <div class="blog-cover">Food Blogs</div>
-                        <div class="card-scorll-container">
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blog-card-container">
-                        <div class="blog-cover">Food Blogs</div>
-                        <div class="card-scorll-container">
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blog-card-container">
-                        <div class="blog-cover">Food Blogs</div>
-                        <div class="card-scorll-container">
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                            <div class="card">
-                                <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                <h3 class="bolg-head">Healthy Eating Tips</h3>
-                                <p class="blog-descirption">
-                                    Discover simple tips for maintainnig a healthy deit and making nutritious food choices.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <% }); %>
                 </div>
             </main>
+            <%- include('partials/footer') %>
         </div>
     </body>
 </html>
