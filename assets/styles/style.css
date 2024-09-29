@@ -62,7 +62,7 @@ a, button{
     cursor: pointer;
 }
 .display-image-container{
-    width: 75vw;
+    width: 69vw;
     align-self: center;
     background-color: #C5C0C0;
     border-radius: 25px;
@@ -70,6 +70,7 @@ a, button{
 }
 .display-image-container img{
     width: 100%;
+    height: 100%;
 }
 .section-styling{
     display: flex;
@@ -99,11 +100,11 @@ a, button{
     font-family: var(--tertiary-font);
     font-size: 1.15rem;
     font-weight: 600;
+    cursor: pointer;
 }
 .section-1-btns{
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    cursor: pointer;
 }
 .feature-wrapper-section-1{
     width: 100%;
@@ -221,4 +222,56 @@ a, button{
     font-weight: 300;
     font-size: 1.25rem;
     width: 35vw;
+}
+.testimonial-section{
+    padding: var(--page-margin);
+    background-color: #E9F0F5;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.testimonial-head{
+    font-family: var(--tertiary-font);
+    font-size: 4rem;
+}
+.testimonial-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.testimonial-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.testimonial{
+    font-size: 1.275rem;
+    font-family: var(--tertiary-font);
+    font-weight: 500;
+    width: 24.5vw;
+}
+.testimonial-name{
+    font-family: var(--tertiary-font);
+    font-size: 1.275rem;
+    font-weight: 700;
+}
+.section-5-start-head{
+    font-size: 3.5rem;
+    font-family: var(--primary-font);
+}
+.section-5-start-text{
+    font-family: var(--secondaty-font);
+    font-weight: 400;
+    font-size: 1.2rem;
+    width: 48%;
+}
+.section-5-btns{
+    background-color: var(--background-color-1);
+    color: var(--primary-color);
+}
+.feature-wrapper-section-5{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

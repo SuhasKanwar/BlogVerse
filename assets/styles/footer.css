@@ -1,0 +1,22 @@
+:root{
+    --background-color-1: #101517;
+    --background-color-2: #ffffff;
+    --primary-font: 'Inria Serif';
+    --secondaty-font: "Inter";
+    --tertiary-font: 'Inria Sans';
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+    --page-margin: 8vw;
+}
+footer{
+    background-color: var(--background-color-1);
+    display: flex;
+    padding: 2.5rem;
+    margin: 0;
+}
+.footer-title{
+    font-family: var(--tertiary-font);
+    color: var(--primary-color);
+    font-size: 2.65rem;
+    font-weight: 600;
+}
