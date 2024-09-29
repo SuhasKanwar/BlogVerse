@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 
-const { logReqRes } = require('./middlewares/log');
 
 const app = express();
 const PORT = process.env.PORT || 9000;
@@ -19,6 +18,8 @@ app.use(express.static('./assets'));
 app.use(express.static('./scripts'));
 
 // Middlewares
+const { logReqRes } = require('./middlewares/log');
+
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(logReqRes("log.txt"));

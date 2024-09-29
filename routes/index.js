@@ -8,6 +8,7 @@ const otpController = require('../controllers/otpController');
 const greetController = require('../controllers/greetController');
 const blogViewController = require('../controllers/blogViewController');
 const collectionsController = require('../controllers/collectionsController');
+const blogCreateController = require('../controllers/blogCreateController');
 
 router.get('/', indexController.indexRender);
 router.get('/login', loginController.loginRender);
@@ -15,5 +16,6 @@ router.get('/login/otp', otpController.otpRender);
 router.get('/greet', greetController.greetRender);
 router.get('/blog-view', blogViewController.blogViewRender);
 router.get('/collections', collectionsController.collectionsRender);
+router.get('/blog-create', blogCreateController.blogCreateRender);
 
 module.exports = router;
