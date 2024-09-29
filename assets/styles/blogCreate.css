@@ -1,18 +1,106 @@
-:root{
-    --background-color-1: #1E1E1E;
-    --background-color-2: #ffffff;
-    --primary-font: 'Inria Serif';
-    --secondaty-font: "Inter";
-    --primary-color: #ffffff;
-    --secondary-color: #000000;
-}
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+body {
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
+    overflow-y: auto;
+    overflow: hidden;
+    font-family: 'Inria Serif', serif;
+    background-color: #f0f0f0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.editor-container {
+    width: 100%;
+    min-height: 82vh;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.editor-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    border: none;
+    outline: none;
+    width: 100%;
+    text-align: center;
+    background-color: transparent;
+    padding: 5px;
+    font-family: 'Inria Serif', serif;
+}
+
+.editor-icon {
+    font-size: 20px;
+    color: #666;
+    cursor: pointer;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icon-button:focus {
+    outline: none;
+}
+
+.editor-toolbar {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.editor-toolbar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 18px;
+}
+
+.editor-toolbar button:hover {
+    color: #333;
+}
+
+.editor-content {
+    min-height: 300px;
+}
+
+.editor-textarea {
+    width: 100%;
+    min-height: 300px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Inria Serif', serif;
+    color: #333;
+    resize: none;
+    padding: 10px;
+}
+
+.editor-textarea::placeholder {
+    color: #999;
 }
