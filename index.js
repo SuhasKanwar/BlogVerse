@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 
 const app = express();
-const PORT = process.env.PORT || 9000;
+const PORT = 9000 || process.env.PORT;
 
 // Connection
 mongoose.connect("mongodb://127.0.0.1:27017/BlogVerse")

@@ -1,3 +1,25 @@
+const directGreetBtns = document.querySelectorAll('.direct-greet-btn');
+const directBlogCreateBtns = document.querySelectorAll('.direct-blogCreate-btn');
+const directCollectionsBtns = document.querySelectorAll('.direct-collections-btn');
+
+directGreetBtns.forEach(directGreetBtn => {
+    directGreetBtn.addEventListener("click", () => {
+        fetch('/greet');
+    });
+});
+
+directBlogCreateBtns.forEach(directBlogCreateBtn => {
+    directBlogCreateBtn.addEventListener("click", () => {
+        fetch('/blog-create');
+    })
+})
+
+directCollectionsBtns.forEach(directCollectionsBtn => {
+    directCollectionsBtn.addEventListener("click", () => {
+        fetch('/collections');
+    })
+})
+
 function setupFeatureSections(sectionClass) {
     const section = document.querySelector(sectionClass);
     const features = section.querySelectorAll('.features-container');
@@ -5,30 +27,27 @@ function setupFeatureSections(sectionClass) {
     features.forEach((feature, index) => {
         const explanation = feature.querySelector('.feature-explanation');
         explanation.style.display = index === 0 ? 'block' : 'none';
-        // Initial icon rotation state
         const icon = feature.querySelector('.feature i');
         if (index === 0) {
-            icon.classList.add('icon-rotate'); // Rotate icon for the first feature
+            icon.classList.add('icon-rotate');
         }
     });
 
     features.forEach((feature) => {
         const featureHead = feature.querySelector('.feature-head');
         const explanation = feature.querySelector('.feature-explanation');
-        const icon = feature.querySelector('.feature i'); // Select the icon
+        const icon = feature.querySelector('.feature i');
 
         featureHead.addEventListener('click', () => {
             const currentDisplay = explanation.style.display;
 
-            // Hide all explanations within this section and reset icons
             features.forEach((f) => {
                 f.querySelector('.feature-explanation').style.display = 'none';
-                f.querySelector('.feature i').classList.remove('icon-rotate'); // Reset rotation
+                f.querySelector('.feature i').classList.remove('icon-rotate');
             });
 
-            // Toggle the clicked feature's explanation and icon rotation
             explanation.style.display = currentDisplay === 'none' ? 'block' : 'none';
-            icon.classList.toggle('icon-rotate', currentDisplay === 'none'); // Toggle rotation
+            icon.classList.toggle('icon-rotate', currentDisplay === 'none');
         });
     });
 }
