@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 
 const app = express();
-const PORT = 9000 || process.env.PORT;
+const PORT = process.env.PORT || 9000;
 
 // Connection
 mongoose.connect("mongodb://127.0.0.1:27017/BlogVerse")
@@ -26,8 +26,10 @@ app.use(logReqRes("log.txt"));
 
 // Routing
 const staticRouter = require('./routes/index');
+const userRouter = require('./routes/user');
 
 app.use('/', staticRouter);
+app.use('/user', userRouter);
 
 app.listen(PORT, (error) => {
     if(error){

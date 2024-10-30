@@ -4,19 +4,19 @@ const directCollectionsBtns = document.querySelectorAll('.direct-collections-btn
 
 directGreetBtns.forEach(directGreetBtn => {
     directGreetBtn.addEventListener("click", () => {
-        fetch('/greet');
+        window.location.href = '/greet';
     });
 });
 
 directBlogCreateBtns.forEach(directBlogCreateBtn => {
     directBlogCreateBtn.addEventListener("click", () => {
-        fetch('/blog-create');
+        window.location.href = '/blog-create';
     })
 })
 
 directCollectionsBtns.forEach(directCollectionsBtn => {
     directCollectionsBtn.addEventListener("click", () => {
-        fetch('/collections');
+        window.location.href = '/collections';
     })
 })
 

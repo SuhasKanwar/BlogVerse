@@ -11,9 +11,11 @@
   "author": "Suhas Kanwar",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "groq-sdk": "^0.7.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.4"
   },
   "devDependencies": {
