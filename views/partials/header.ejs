@@ -10,12 +10,24 @@
     </div>
     <div class="right-container">
         <nav class="nav-container">
-            <div class="login-nav-container">
-                <a href="/login" class="header-links">Login</a>
-            </div>
-            <div class="login-nav-link-2">
-                <a href="/greet">Get Started</a>
-            </div>
+            <% if (locals.user) { %>
+                <div class="login-nav-container">
+                    <a href="#" class="header-links"><%= JSON.stringify(user.fullName) %></a>
+                </div>
+                <div class="login-nav-link-2">
+                    <a href="/greet">Get Started</a>
+                </div>
+                <div class="login-nav-link-3">
+                    <a href="/user/logout">Logout</a>
+                </div>
+            <% } else { %>
+                <div class="login-nav-container">
+                    <a href="/login" class="header-links">Login</a>
+                </div>
+                <div class="login-nav-link-2">
+                    <a href="/login">Create Account</a>
+                </div>
+            <% }%>
         </nav>
     </div>
 </header>

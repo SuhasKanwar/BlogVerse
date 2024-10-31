@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 const app = express();
@@ -19,10 +20,13 @@ app.use(express.static('./scripts'));
 
 // Middlewares
 const { logReqRes } = require('./middlewares/log');
+const { checkAuthCookie } = require('./middlewares/authentication');
 
+app.use(logReqRes("log.txt"));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-app.use(logReqRes("log.txt"));
+app.use(cookieParser());
+app.use(checkAuthCookie("token"));
 
 // Routing
 const staticRouter = require('./routes/index');
