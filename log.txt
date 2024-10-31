@@ -1416,3 +1416,14 @@
 1730376408193 : ::1 : GET : /login.ejs
 1730376423314 : ::1 : POST : /user/login
 1730376423333 : ::1 : GET : /
+1730376592391 : ::1 : GET : /blog-view
+1730376911256 : ::1 : GET : /blog-create
+1730377319733 : ::1 : GET : /blog-create
+1730377354983 : ::1 : GET : /blog-view
+1730377367577 : ::1 : GET : /blog-view
+1730377369973 : ::1 : GET : /login
+1730377370030 : ::1 : GET : /login.ejs
+1730377377827 : ::1 : GET : /blog-create
+1730377388375 : ::1 : GET : /blog-create
+1730377426895 : ::1 : GET : /blog-create
+1730377432155 : ::1 : POST : /blog-create

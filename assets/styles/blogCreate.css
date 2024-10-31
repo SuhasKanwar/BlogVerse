@@ -20,6 +20,10 @@ body {
     align-items: center;
 }
 
+form{
+    width: 100vw;
+}
+
 .editor-container {
     width: 100%;
     min-height: 82vh;

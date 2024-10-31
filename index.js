@@ -31,9 +31,11 @@ app.use(checkAuthCookie("token"));
 // Routing
 const staticRouter = require('./routes/index');
 const userRouter = require('./routes/user');
+const blogRouter = require('./routes/blog');
 
 app.use('/', staticRouter);
 app.use('/user', userRouter);
+app.use('/blog', blogRouter);
 
 app.listen(PORT, (error) => {
     if(error){
