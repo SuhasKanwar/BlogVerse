@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const categories = [""];
+
 const blogSchema = mongoose.Schema({
     title: {
         type: String,
@@ -11,7 +13,14 @@ const blogSchema = mongoose.Schema({
     },
     coverImageURL: {
         type: String,
-        required: false
+        required: false,
+        default: '/cover-images/default-cover-image.jpg'
+    },
+    category: {
+        type: String,
+        required: true,
+        enum: categories,
+        default: "Miscellaneous"
     },
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
