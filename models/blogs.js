@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const categories = [""];
+const categories = ["food", "travel", "tech", "lifestyle", "fashion", "miscellaneous"];
 
 const blogSchema = mongoose.Schema({
     title: {
@@ -20,7 +20,7 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: true,
         enum: categories,
-        default: "Miscellaneous"
+        default: "miscellaneous"
     },
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,

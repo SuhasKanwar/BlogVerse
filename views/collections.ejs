@@ -25,15 +25,17 @@
                         <div class="blog-card-container">
                             <div class="blog-cover"><%= category %></div>
                             <div class="card-scroll-container">
-                                <% for (let i = 0; i < 10; i++) { %>
-                                    <div class="card">
-                                        <img src="images/blog-card-cover.png" alt="Blog Card Cover" class="cover-img">
-                                        <h3 class="blog-head">Healthy Eating Tips</h3>
-                                        <p class="blog-description">
-                                            Discover simple tips for maintaining a healthy diet and making nutritious food choices.
-                                        </p>
-                                    </div>
-                                <% } %>
+                                <% blogs.forEach(blog => { %>
+                                    <a href="blog/<%= blog._id %>">
+                                        <div class="card">
+                                            <img src="<%= blog.coverImageURL %>" alt="Blog Card Cover" class="cover-img">
+                                            <h3 class="blog-head"><%= blog.title %></h3>
+                                            <p class="blog-description">
+                                                <%= blog.body %>
+                                            </p>
+                                        </div>
+                                    </a>
+                                <% }) %>
                             </div>
                         </div>
                     <% }); %>

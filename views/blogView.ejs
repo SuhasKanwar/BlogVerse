@@ -2,9 +2,9 @@
 <html lang="en">
     <head>
         <%- include('partials/head') %>
-        <link rel="stylesheet" href="styles/blogView.css">
         <link rel="stylesheet" href="styles/header.css">
         <link rel="stylesheet" href="styles/scrollbar.css">
+        <link rel="stylesheet" href="styles/blogView.css">
     </head>
     <body>
         <div class="container">
@@ -12,15 +12,18 @@
             <%- include('partials/header')%>
 
             <main class="blog-container">
-                <h1 class="blog-heading">Effective Time Management</h1>
-                <img src="images/blog-image.png" alt="Blog Image" class="blog-img">
+                <h1 class="blog-heading"><%= blog.title %></h1>
+                <img src="<%= blog.coverImageURL %>" alt="Blog Image" class="blog-img">
                 <div class="para-container">
-                    <p class="para" id="para-1">
+                    <pre class="para" id="para-1">
+                        <%= blog.body %>
+                    </pre>
+                    <!-- <p class="para" id="para-1">
                         Effective time management is about making the most of the hours in a day while staying focused on your goals. One of the most powerful techniques is to set clear priorities. A useful tool for this is the Eisenhower Matrix, which helps you categorize tasks based on their urgency and importance. By focusing on tasks that are both urgent and important, you can ensure that you're dedicating time to the things that truly matter, while minimizing distractions from less essential activities.
                     </p>
                     <p class="para" id="para-2">
                         Another key strategy is to break your goals into manageable, actionable steps. Setting SMART goals (Specific, Measurable, Achievable, Relevant, Time-bound) gives you a clear roadmap, making it easier to allocate time effectively. With proper goal-setting and prioritization, you can avoid feeling overwhelmed and create a balanced routine that not only boosts productivity but also reduces stress.
-                    </p>
+                    </p> -->
                 </div>
             </main>
         </div>

@@ -17,6 +17,7 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve('./views'));
 app.use(express.static('./assets'));
 app.use(express.static('./scripts'));
+app.use(express.static(path.resolve('./public')));
 
 // Middlewares
 const { logReqRes } = require('./middlewares/log');

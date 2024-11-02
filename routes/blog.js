@@ -1,9 +1,26 @@
 const express = require('express');
+const multer = require('multer');
+const path = require('path');
 
 const router = express.Router();
 
-const blogController = require('../controllers/blogCreateController');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        // cb(null, path.resolve(`./public/cover-images/${req.user._id}`));
+        cb(null, path.resolve(`./public/cover-images/`));
+    },
+    filename: function (req, file, cb) {
+        const fileName = `${Date.now()} - ${file.originalname}`;
+        cb(null, fileName);
+    }
+});
 
-router.post('/add-blog', blogController.blogCreateHandler);
+const upload = multer({ storage: storage });
+
+const blogController = require('../controllers/blogCreateController');
+const blogViewController = require('../controllers/blogViewController');
+
+router.post('/add-blog', upload.single('coverImage'), blogController.blogCreateHandler);
+router.get('/:id', blogViewController.blogViewRender);
 
 module.exports = router;

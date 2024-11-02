@@ -9,7 +9,7 @@
     <body>
         <%- include('partials/header') %>
         <div class="container">
-            <form action="/blog/add-blog" method="post">
+            <form action="/blog/add-blog" method="post" enctype="multipart/form-data">
                 <main class="editor-container">
                     <div class="editor-header">
                         <button class="icon-button" type="submit">
@@ -30,11 +30,14 @@
                         <button aria-label="Underline"><i class="fas fa-underline"></i></button>
                         <button aria-label="List"><i class="fas fa-list"></i></button>
                         <button aria-label="Link"><i class="fas fa-link"></i></button>
-                        <button aria-label="Image"><i class="fas fa-image"></i></button>
+                        <label class="file-upload">
+                            <input type="file" name="coverImage" aria-label="Image">
+                            <i class="fas fa-image"></i>
+                        </label>                        
                     </nav>
                 
                     <section class="editor-content">
-                        <textarea class="editor-textarea" placeholder="Type the content for the blog here" aria-label="Blog content"></textarea>
+                        <textarea class="editor-textarea" name="body" placeholder="Type the content for the blog here" aria-label="Blog content"></textarea>
                     </section>
                 </main>
             </form>

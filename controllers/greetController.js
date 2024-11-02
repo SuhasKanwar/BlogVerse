@@ -1,3 +1,5 @@
 exports.greetRender = (req, res) => {
-    return res.render('greet');
+    return res.render('greet', {
+        user: req.user
+    });
 }
