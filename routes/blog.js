@@ -19,8 +19,10 @@ const upload = multer({ storage: storage });
 
 const blogController = require('../controllers/blogCreateController');
 const blogViewController = require('../controllers/blogViewController');
+const commentsController = require('../controllers/commentsController');
 
 router.post('/add-blog', upload.single('coverImage'), blogController.blogCreateHandler);
 router.get('/:id', blogViewController.blogViewRender);
+router.post('/comment/:blogID', commentsController.commentHandler);
 
 module.exports = router;

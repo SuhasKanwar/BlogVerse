@@ -18,6 +18,9 @@
                     <p class="para" id="para-1">
                         <%= blog.body %>
                     </p>
+                    <p class="para" id="para-1">
+                        <img src="<%= blog.createdBy.profileImageURL %>" alt="Profile Image" width="50px"><%= blog.createdBy.fullName %>
+                    </p>
                     <!-- <p class="para" id="para-1">
                         Effective time management is about making the most of the hours in a day while staying focused on your goals. One of the most powerful techniques is to set clear priorities. A useful tool for this is the Eisenhower Matrix, which helps you categorize tasks based on their urgency and importance. By focusing on tasks that are both urgent and important, you can ensure that you're dedicating time to the things that truly matter, while minimizing distractions from less essential activities.
                     </p>
@@ -26,6 +29,25 @@
                     </p> -->
                 </div>
             </main>
+
+            <div class="comments-wrapper">
+                <h2>Comments (<%= comments.length %>)</h2>
+                <% if (locals.user) { %>
+                    <form action="/blog/comment/<%= blog._id %>" method="post">
+                        <input type="text" name="content" placeholder="Enter your comment">
+                        <button type="submit">Add Comment</button>
+                    </form>
+                <% } else { %>
+                    Sign-in to add comments
+                <% } %>
+                <div class="comments-container">
+                    <% comments.forEach(comment => { %>
+                        <img src="<%= comment.createdBy.profileImageURL %>" alt="Profile Image" width="50px"><%= comment.createdBy.fullName %>
+                        <pre><%= comment.content %></pre>
+                    <% }) %>
+                </div>
+            </div>
+
         </div>
     </body>
 </html>
