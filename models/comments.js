@@ -12,6 +12,10 @@ const commentSchema = mongoose.Schema({
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "users"
+    },
+    createdAt: {
+        type: Date,
+        required: true
     }
 }, { timeStamps: true });
 

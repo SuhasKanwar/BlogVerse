@@ -8,10 +8,12 @@ exports.blogCreateRender = (req, res) => {
 
 exports.blogCreateHandler = async (req, res) => {
     console.log(req.body);
-    const { title, body } = req.body;
+    const { title, body, category } = req.body;
     const blog = await Blog.create({
         title,
         body,
+        category,
+        createdAt: Date.now(),
         createdBy: req.user._id,
         coverImageURL: `/cover-images/${req.file.filename}`
     });
