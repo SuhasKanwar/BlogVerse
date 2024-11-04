@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include('partials/head') %>
-        <link rel="stylesheet" href="styles/collections.css">
-    </head>
-    <body>
-        <div class="container">
-            <%- include('partials/header') %>
+<head>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="styles/collections.css">
+</head>
+<body>
+    <div class="container">
+        <%- include('partials/header') %>
 
-            <main class="collections-container">
-                <h1 class="collections-heading">Latest Articles</h1>
-                <div class="carousel-container">
-                    <img src="images/latest-article-banner.png" alt="latest-articles" class="latest-articles">
-                </div>
+        <main class="collections-container">
+            <h1 class="collections-heading">Latest Articles</h1>
+            <div class="carousel-container">
+                <img src="images/latest-article-banner.png" alt="latest-articles" class="latest-articles">
+            </div>
 
-                <div class="collections-cards-container">
-                    <h2 class="collections-head">Collections</h2>
+            <div class="collections-cards-container">
+                <h2 class="collections-head">Collections</h2>
 
-                    <% const categories = ['Food Blogs', 'Travel Blogs', 'Tech Blogs', 'Lifestyle Blogs', 'Fashion Blogs', "Miscelaneous"]; %>
-                    <% categories.forEach(category => { %>
-                        <div class="blog-card-container">
-                            <div class="blog-cover"><%= category %></div>
-                            <div class="card-scroll-container">
-                                <% blogs.forEach(blog => { %>
-                                    <a href="blog/<%= blog._id %>">
-                                        <div class="card">
-                                            <img src="<%= blog.coverImageURL %>" alt="Blog Card Cover" class="cover-img">
-                                            <h3 class="blog-head"><%= blog.title %></h3>
-                                            <p class="blog-description">
-                                                <%= blog.body %>
-                                            </p>
-                                        </div>
-                                    </a>
-                                <% }) %>
-                            </div>
+                <% const categories = ['Food Blogs', 'Travel Blogs', 'Tech Blogs', 'Lifestyle Blogs', 'Fashion Blogs', "Miscelaneous"]; %>
+                <% categories.forEach(category => { %>
+                    <div class="blog-card-container">
+                        <div class="blog-cover"><%= category %></div>
+                        <div class="card-scroll-container">
+                            <% blogs.filter(blog => blog.category === category).forEach(blog => { %>
+                                <a href="blog/<%= blog._id %>">
+                                    <div class="card">
+                                        <img src="<%= blog.coverImageURL %>" alt="Blog Card Cover" class="cover-img">
+                                        <h3 class="blog-head"><%= blog.title %></h3>
+                                        <p class="blog-description">
+                                            <%= blog.body %>
+                                        </p>
+                                    </div>
+                                </a>
+                            <% }) %>
                         </div>
-                    <% }); %>
-                </div>
-            </main>
-            <%- include('partials/footer') %>
-        </div>
-    </body>
+                    </div>
+                <% }); %>
+            </div>
+        </main>
+        <%- include('partials/footer') %>
+    </div>
+</body>
 </html>

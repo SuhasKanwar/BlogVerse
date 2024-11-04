@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const categories = ["food", "travel", "tech", "lifestyle", "fashion", "miscellaneous"];
+const categories = ['Food Blogs', 'Travel Blogs', 'Tech Blogs', 'Lifestyle Blogs', 'Fashion Blogs', "Miscelaneous"];
 
 const blogSchema = mongoose.Schema({
     title: {

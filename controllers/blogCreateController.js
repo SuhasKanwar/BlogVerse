@@ -7,15 +7,26 @@ exports.blogCreateRender = (req, res) => {
 };
 
 exports.blogCreateHandler = async (req, res) => {
-    console.log(req.body);
     const { title, body, category } = req.body;
-    const blog = await Blog.create({
-        title,
-        body,
-        category,
-        createdAt: Date.now(),
-        createdBy: req.user._id,
-        coverImageURL: `/cover-images/${req.file.filename}`
-    });
-    return res.redirect(`/blog/${blog._id}`);
+    if(req.file){
+        const blog = await Blog.create({
+            title,
+            body,
+            category,
+            createdAt: Date.now(),
+            createdBy: req.user._id,
+            coverImageURL: `/cover-images/${req.file.filename}`
+        });
+        return res.redirect(`/blog/${blog._id}`);
+    }
+    else{
+        const blog = await Blog.create({
+            title,
+            body,
+            category,
+            createdAt: Date.now(),
+            createdBy: req.user._id
+        });
+        return res.redirect(`/blog/${blog._id}`);
+    }
 };
