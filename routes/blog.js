@@ -24,5 +24,6 @@ const commentsController = require('../controllers/commentsController');
 router.post('/add-blog', upload.single('coverImage'), blogController.blogCreateHandler);
 router.get('/:id', blogViewController.blogViewRender);
 router.post('/comment/:blogID', commentsController.commentHandler);
+router.post('/ai-rewrite', blogController.blogAIRewrite);
 
 module.exports = router;

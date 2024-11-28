@@ -1,3 +1,4 @@
+const { getGroqChatCompletion } = require('../utils/api');
 const Blog = require('../models/blogs');
 
 exports.blogCreateRender = (req, res) => {
@@ -28,5 +29,26 @@ exports.blogCreateHandler = async (req, res) => {
             createdBy: req.user._id
         });
         return res.redirect(`/blog/${blog._id}`);
+    }
+};
+
+exports.blogAIRewrite = async (req, res) => {
+    const { content } = req.body;
+
+    if (!content) {
+        return res.status(400).json({ message: 'Content is required for rewriting.' });
+    }
+
+    try {
+        const completion = await getGroqChatCompletion(
+            `Rewrite the following content with improved clarity and make sure to not change the meaning of the content just better words and grammer for a blog and just provide the body content of it and no heading:\n\n${content}`
+        );
+
+        const rewrittenContent = completion.choices[0].message.content.trim();
+
+        res.status(200).json({ rewrittenContent });
+    } catch (error) {
+        console.error('Error during content rewriting:', error);
+        res.status(500).json({ message: 'Failed to rewrite content. Please try again later.' });
     }
 };

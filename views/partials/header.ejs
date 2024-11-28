@@ -12,7 +12,7 @@
         <nav class="nav-container">
             <% if (locals.user) { %>
                 <div class="login-nav-container">
-                    <a href="#" class="header-links"><%= JSON.stringify(user.fullName) %></a>
+                    <a href="#" class="header-links"><%= JSON.stringify(user.fullName).substring(1, JSON.stringify(user.fullName).length - 1) %></a>
                 </div>
                 <div class="login-nav-link-2">
                     <a href="/greet">Get Started</a>

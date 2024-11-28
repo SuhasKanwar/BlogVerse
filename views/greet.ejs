@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="container">
-            <h1 class="greet-heading">Let's start your blog, <p class="user-name"><%= JSON.stringify(user.fullName) %></p>!</h1>
+            <h1 class="greet-heading">Let's start your blog, <p class="user-name"><%= JSON.stringify(user.fullName).substring(1, JSON.stringify(user.fullName).length - 1) %></p>!</h1>
             <div class="option-container" id="option-container-1">
                 <div class="text-container">
                     <div class="img-container">

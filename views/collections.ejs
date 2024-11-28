@@ -28,8 +28,13 @@
                                         <img src="<%= blog.coverImageURL %>" alt="Blog Card Cover" class="cover-img">
                                         <h3 class="blog-head"><%= blog.title %></h3>
                                         <p class="blog-description">
-                                            <%= blog.body %>
+                                            <%= blog.body.substring(0, 150) %>...
                                         </p>
+                                        <% if (blog.createdAt) { %>
+                                            <p class="post-date">Posted on <%= blog.createdAt.toLocaleDateString() %></p>
+                                        <% } else { %>
+                                            <p class="post-date">Posted on Unknown Date</p>
+                                        <% } %>
                                     </div>
                                 </a>
                             <% }) %>

@@ -90,12 +90,12 @@ form{
 }
 
 .editor-content {
-    min-height: 300px;
+    min-height: 100%;
 }
 
 .editor-textarea {
     width: 100%;
-    min-height: 300px;
+    min-height: 70vh;
     border: none;
     outline: none;
     font-size: 16px;
