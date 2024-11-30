@@ -8,9 +8,17 @@ const app = express();
 const PORT = process.env.PORT || 9000;
 
 // Connection
-mongoose.connect("mongodb://127.0.0.1:27017/BlogVerse")
-    .then(() => { console.log("MongoDB Connected Successfully") })
-    .catch((error) => { console.log("Error connecting MongoDB", error) });
+const uri = process.env.MONGO_DB_CONNECTION_URI;
+
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
+  console.log("MongoDB Connected Successfully!!!");
+}).catch((error) => {
+  console.error("Error connecting MongoDB", error);
+});
+
 
 // Setting up path and view engine
 app.set("view engine", "ejs");

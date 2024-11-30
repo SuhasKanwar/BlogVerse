@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "6729133425d6e34bbc8717ff"
+  },
+  "fullName": "Suhas Kanwar",
+  "email": "suhas.kanwar@gmail.com",
+  "password": "09ef29259c32ce7b03062c74ad021cc019dea3d906198784f8e1aa3701faa931",
+  "profileImageURL": "/avatars/default-avatar.png",
+  "role": "USER",
+  "salt": "27$��be��\f\u0002\u0012w\u0019��",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6729d5d71b94950cd52b418a"
+  },
+  "fullName": "test",
+  "email": "test@gmail.com",
+  "password": "325f776b7599966a5c92b8293f314a85811fb63b87ad1ff3aee36e14a0edf160",
+  "profileImageURL": "/avatars/default-avatar.png",
+  "role": "USER",
+  "salt": "��~���a�_�S\t��K�",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6748740afec75695f5a519d8"
+  },
+  "fullName": "Suryansh Mahajan",
+  "email": "suryansh.mahajan.23cse@bmu.edu.in",
+  "password": "1a539d33bc56a3fe651d2eff347f713b337dd046ad2eb4a853aac3bdf344b05b",
+  "profileImageURL": "/avatars/default-avatar.png",
+  "role": "USER",
+  "salt": "~f?\n�p�z���P�i\u000e",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6748833bbbb7efb88c8e1f06"
+  },
+  "fullName": "Aditya Yadav",
+  "email": "aditya.yadav.23cse@bmu.edu.in",
+  "password": "a254d16b7a8710c8146e352d96b2f88c113aa137fa6d761eb424589dc445a65c",
+  "profileImageURL": "/avatars/default-avatar.png",
+  "role": "USER",
+  "salt": "���7�a��5(}��2\u0006�",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674a04cf8c126a4067f55aca"
+  },
+  "fullName": "Priyansh Singh",
+  "email": "priyansh.singh.23cse@bmu.edu.in",
+  "password": "9f0b181b3a73530f5935a985a9e76b7951757d33937d51266d39282df5f0dc4f",
+  "profileImageURL": "/avatars/default-avatar.png",
+  "role": "USER",
+  "salt": ":�\u0000���\f��7,Su�QP",
+  "__v": 0
+}]
