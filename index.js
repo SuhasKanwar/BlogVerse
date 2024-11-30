@@ -23,8 +23,8 @@ mongoose.connect(uri, {
 // Setting up path and view engine
 app.set("view engine", "ejs");
 app.set("views", path.resolve('./views'));
-app.use(express.static('./assets'));
-app.use(express.static('./scripts'));
+app.use(express.static(path.resolve('./assets')));
+app.use(express.static(path.resolve('./scripts')));
 app.use(express.static(path.resolve('./public')));
 
 // Middlewares
