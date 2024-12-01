@@ -41,7 +41,7 @@ exports.blogAIRewrite = async (req, res) => {
 
     try {
         const completion = await getGroqChatCompletion(
-            `Rewrite the following content with improved clarity and make sure to not change the meaning of the content just better words and grammer for a blog and just provide the body content of it and no heading:\n\n${content}`
+            `Improve the grammer and words of the provided content do not change the word count, but do not change the meaning of the content, just provide the enhanced content no extra words:\nContent:\n${content}`
         );
 
         const rewrittenContent = completion.choices[0].message.content.trim();
