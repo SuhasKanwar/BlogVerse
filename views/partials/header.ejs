@@ -1,4 +1,4 @@
-<header>
+<header class="sticky-header">
     <div class="left-container">
         <div class="logo-container">
             <img src="/images/favicon.png" alt="BlogVerse-logo" class="logo-img">
@@ -12,20 +12,20 @@
         <nav class="nav-container">
             <% if (locals.user) { %>
                 <div class="login-nav-container">
-                    <a href="#" class="header-links"><%= JSON.stringify(user.fullName).substring(1, JSON.stringify(user.fullName).length - 1) %></a>
+                    <a href="#" class="header-links profile-name"><%= JSON.stringify(user.fullName).substring(1, JSON.stringify(user.fullName).length - 1) %></a>
                 </div>
                 <div class="login-nav-link-2">
-                    <a href="/greet">Get Started</a>
+                    <a href="/greet" class="cta-button">Get Started</a>
                 </div>
                 <div class="login-nav-link-3">
-                    <a href="/user/logout">Logout</a>
+                    <a href="/user/logout" class="logout-link">Logout</a>
                 </div>
             <% } else { %>
                 <div class="login-nav-container">
                     <a href="/login" class="header-links">Login</a>
                 </div>
                 <div class="login-nav-link-2">
-                    <a href="/login">Create Account</a>
+                    <a href="/login" class="cta-button">Create Account</a>
                 </div>
             <% }%>
         </nav>
