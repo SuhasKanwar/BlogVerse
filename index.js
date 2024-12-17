@@ -41,10 +41,12 @@ app.use(checkAuthCookie("token"));
 const staticRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const blogRouter = require('./routes/blog');
+const profileRouter = require('./routes/profile');
 
 app.use('/', staticRouter);
 app.use('/user', userRouter);
 app.use('/blog', blogRouter);
+app.use('/profile', profileRouter);
 
 app.listen(PORT, (error) => {
     if(error){

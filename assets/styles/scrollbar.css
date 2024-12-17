@@ -1,23 +1,23 @@
-:root{
-    --background-color-1: #101517;
-    --background-color-2: #ffffff;
-    --primary-font: 'Inria Serif';
-    --secondaty-font: "Inter";
-    --tertiary-font: 'Inria Sans';
-    --primary-color: #ffffff;
-    --secondary-color: #000000;
-    --page-margin: 8vw;
+::-webkit-scrollbar {
+    width: 12px;
 }
-::-webkit-scrollbar{
-    width: 10px;
-}
-::-webkit-scrollbar-track{
+
+::-webkit-scrollbar-track {
     background: var(--background-color-1);
+    border-radius: 10px;
 }
-::-webkit-scrollbar-thumb{
-    background: var(--primary-color);
-    border-radius: 5px;
+
+::-webkit-scrollbar-thumb {
+    background: #9aa3ac;
+    border-radius: 10px;
+    transition: background 0.3s ease;
 }
-::-webkit-scrollbar-thumb:hover{
-    background: #555;
+
+::-webkit-scrollbar-thumb:hover {
+    background: #abb5be;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #8b9bac var(--background-color-1);
 }

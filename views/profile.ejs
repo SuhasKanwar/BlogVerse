@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - BlogVerse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #f4f5f7;
+            --secondary-bg: #ffffff;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --accent-color: #4A90E2;
+            --border-color: #E0E4E8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg);
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 2rem;
+        }
+
+        .profile-sidebar {
+            background-color: var(--secondary-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            height: fit-content;
+        }
+
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--accent-color);
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-username {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            background-color: var(--primary-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-weight: 700;
+            display: block;
+        }
+
+        .profile-main {
+            background-color: var(--secondary-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .profile-tab:hover {
+            background-color: var(--primary-bg);
+        }
+
+        .profile-tab.active {
+            border-bottom: 3px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .profile-content {
+            padding: 2rem;
+        }
+
+        .blog-post {
+            background-color: var(--primary-bg);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .blog-post-thumbnail {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .blog-post-details {
+            flex-grow: 1;
+        }
+
+        .blog-post-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-post-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .comment {
+            background-color: var(--primary-bg);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Profile Sidebar -->
+        <div class="profile-sidebar">
+            <img src="/api/placeholder/150/150" alt="Profile Avatar" class="profile-avatar">
+            <div class="profile-name">John Doe</div>
+            <div class="profile-username">@johndoe</div>
+            
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <span class="stat-number">42</span>
+                    Blogs
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">256</span>
+                    Followers
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">128</span>
+                    Following
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Main Content -->
+        <div class="profile-main">
+            <!-- Profile Tabs -->
+            <div class="profile-tabs">
+                <div class="profile-tab active" data-tab="blogs">Blogs</div>
+                <div class="profile-tab" data-tab="comments">Comments</div>
+                <div class="profile-tab" data-tab="about">About</div>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="profile-content">
+                <!-- Blogs Tab -->
+                <div class="tab-content" id="blogs" style="display: block;">
+                    <div class="blog-post">
+                        <img src="/api/placeholder/100/100" alt="Blog Thumbnail" class="blog-post-thumbnail">
+                        <div class="blog-post-details">
+                            <div class="blog-post-title">The Future of Blogging</div>
+                            <div class="blog-post-meta">
+                                Published on June 15, 2024 • 5 min read
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-post">
+                        <img src="/api/placeholder/100/100" alt="Blog Thumbnail" class="blog-post-thumbnail">
+                        <div class="blog-post-details">
+                            <div class="blog-post-title">10 Tips for Content Creation</div>
+                            <div class="blog-post-meta">
+                                Published on May 22, 2024 • 7 min read
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comments Tab -->
+                <div class="tab-content" id="comments" style="display: none;">
+                    <div class="comment">
+                        <div class="comment-header">
+                            <img src="/api/placeholder/40/40" alt="Commenter Avatar" class="comment-avatar">
+                            <strong>Jane Smith</strong> commented on <a href="#">The Future of Blogging</a>
+                        </div>
+                        <p>Great insights! I really appreciate the depth of analysis in this post.</p>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-header">
+                            <img src="/api/placeholder/40/40" alt="Commenter Avatar" class="comment-avatar">
+                            <strong>Mike Johnson</strong> commented on <a href="#">10 Tips for Content Creation</a>
+                        </div>
+                        <p>These tips are extremely helpful for new content creators.</p>
+                    </div>
+                </div>
+
+                <!-- About Tab -->
+                <div class="tab-content" id="about" style="display: none;">
+                    <h3>About Me</h3>
+                    <p>Passionate writer and content creator with a love for technology, travel, and storytelling. Always eager to learn and share knowledge through blogging.</p>
+                    
+                    <h4>Contact Information</h4>
+                    <p>Email: john.doe@example.com</p>
+                    <p>Location: San Francisco, CA</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.profile-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Hide all tab contents
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+
+                // Show selected tab content
+                document.getElementById(tab.dataset.tab).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
