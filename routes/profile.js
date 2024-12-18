@@ -18,6 +18,6 @@ const upload = multer({ storage: storage });
 
 router.get('/:id', profileController.profileRender);
 router.get('/edit/:id', profileController.profileEditRednder);
-router.patch('/edit/:id', upload.single('profileImage'), profileController.profileUpdateHandler);
+router.post('/edit/:id', upload.single('profileImage'), profileController.profileUpdateHandler);
 
 module.exports = router;

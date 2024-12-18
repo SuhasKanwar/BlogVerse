@@ -66,48 +66,57 @@ exports.profileUpdateHandler = async (req, res) => {
       github,
     } = req.body;
 
-    let profileImageURL = req.body.profileImageURL;
-    if (req.file) {
-      profileImageURL = `/uploads/${req.file.filename}`;
-    }
-
+    // Find the user
     const user = await Users.findById(req.params.id);
-
     if (!user) {
       return res.status(404).send("User not found");
     }
 
-    if (req.file && user.profileImageURL !== '/avatars/default-avatar.png') {
-      const oldAvatarPath = path.join(__dirname, '../public', user.profileImageURL);
-      fs.unlink(oldAvatarPath, (err) => {
-        if (err) {
-          console.error("Error deleting old avatar:", err);
-        } else {
-          console.log("Old avatar deleted successfully");
-        }
-      });
+    // Handle profile image
+    let profileImageURL = user.profileImageURL;
+    if (req.file) {
+      profileImageURL = `/avatars/${req.file.filename}`;
     }
 
-    // Update the user's fields
-    user.fullName = fullName || user.fullName;
-    user.email = email || user.email;
-    user.bio = bio || user.bio;
-    user.dateOfBirth = dateOfBirth || user.dateOfBirth;
-    user.gender = gender || user.gender;
+    // Update user fields using direct assignment
+    user.fullName = fullName;
+    user.email = email;
+    user.bio = bio;
+    
+    // Only update date of birth if it's not empty
+    if (dateOfBirth) {
+      user.dateOfBirth = new Date(dateOfBirth);
+    }
+    
+    user.gender = gender;
+    
+    // Update social links
     user.socials = {
-      facebook: facebook || user.socials.facebook,
-      twitter: twitter || user.socials.twitter,
-      instagram: instagram || user.socials.instagram,
-      linkedin: linkedin || user.socials.linkedin,
-      github: github || user.socials.github,
+      facebook: facebook || '',
+      twitter: twitter || '',
+      instagram: instagram || '',
+      linkedin: linkedin || '',
+      github: github || ''
     };
+
+    // Update profile image
     user.profileImageURL = profileImageURL;
 
-    await user.save();
+    // Use findByIdAndUpdate instead of save()
+    const updatedUser = await Users.findByIdAndUpdate(
+      req.params.id, 
+      user, 
+      { 
+        new: true,  // Return the modified document
+        runValidators: true  // Run model validations
+      }
+    );
+
+    console.log("Updated User:", updatedUser);
 
     res.redirect(`/profile/${user._id}`);
   } catch (err) {
-    console.error(err);
-    res.status(500).send("Server Error");
+    console.error("Full Error:", err);
+    res.status(500).send("Server Error: " + err.message);
   }
 };
