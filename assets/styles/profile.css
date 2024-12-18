@@ -111,9 +111,13 @@ body {
 }
 
 .secondary-button:hover {
-  background-color: #eaeaea;
-  color: #121212;
+  background-color: #121212;
+  color: #f0f0f0;
   transform: translateY(-2px);
+}
+
+.ternary-button{
+  background-color: #4A90E2;
 }
 
 .profile-tabs {

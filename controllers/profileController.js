@@ -57,6 +57,7 @@ exports.profileUpdateHandler = async (req, res) => {
     const {
       fullName,
       email,
+      userName,
       bio,
       dateOfBirth,
       gender,
@@ -99,6 +100,7 @@ exports.profileUpdateHandler = async (req, res) => {
 
     user.fullName = fullName;
     user.email = email;
+    user.userName = userName;
     user.bio = bio;
     
     if (dateOfBirth) {
