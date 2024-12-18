@@ -1,287 +1,592 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile - BlogVerse</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sophia Rodriguez - Profile</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=Inter:wght@400;600&family=Inria+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <style>
-        :root {
-            --primary-bg: #f4f5f7;
-            --secondary-bg: #ffffff;
-            --text-primary: #333333;
-            --text-secondary: #666666;
-            --accent-color: #4A90E2;
-            --border-color: #E0E4E8;
-        }
+      :root {
+        --background-color-1: #101517;
+        --background-color-2: #ffffff;
+        --primary-font: "Inria Serif";
+        --secondary-font: "Inter";
+        --tertiary-font: "Inria Sans";
+        --primary-color: #ffffff;
+        --secondary-color: #000000;
+        --accent-color: #4a90e2;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--primary-bg);
-            line-height: 1.6;
-            color: var(--text-primary);
-        }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        background-color: #f4f7f6;
+      }
 
-        .profile-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            gap: 2rem;
-        }
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
 
-        .profile-sidebar {
-            background-color: var(--secondary-bg);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            height: fit-content;
-        }
+      .profile-container {
+        width: 100%;
+        color: var(--secondary-color);
+        font-family: var(--primary-font);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        background-color: var(--background-color-2);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        padding: 2rem;
+        margin-top: 2rem;
+      }
 
-        .profile-avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            border: 4px solid var(--accent-color);
-        }
+      .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        position: relative;
+      }
 
-        .profile-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
+      .profile-image {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: contain;
+        border: 5px solid var(--accent-color);
+        transition: transform 0.3s ease;
+      }
 
-        .profile-username {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
+      .profile-image:hover {
+        transform: scale(1.05);
+      }
 
-        .profile-stats {
-            display: flex;
-            justify-content: space-around;
-            background-color: var(--primary-bg);
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
+      .profile-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
 
-        .stat-item {
-            text-align: center;
-        }
+      .profile-name {
+        font-size: 3.5rem;
+        font-weight: bold;
+        background: linear-gradient(
+          45deg,
+          var(--background-color-1),
+          var(--accent-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
 
-        .stat-number {
-            font-weight: 700;
-            display: block;
-        }
+      .profile-username {
+        font-family: var(--secondary-font);
+        font-size: 1.5rem;
+        color: #666;
+      }
 
-        .profile-main {
-            background-color: var(--secondary-bg);
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .profile-stats {
+        display: flex;
+        gap: 2rem;
+        font-family: var(--secondary-font);
+      }
 
-        .profile-tabs {
-            display: flex;
-            border-bottom: 1px solid var(--border-color);
-        }
+      .stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f9f9f9;
+        padding: 0.8rem 1.5rem;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
 
-        .profile-tab {
-            flex: 1;
-            padding: 1rem;
-            text-align: center;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+      .stat:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
 
-        .profile-tab:hover {
-            background-color: var(--primary-bg);
-        }
+      .stat-number {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--accent-color);
+      }
 
-        .profile-tab.active {
-            border-bottom: 3px solid var(--accent-color);
-            color: var(--accent-color);
-        }
+      .stat-label {
+        font-size: 1rem;
+        color: #666;
+      }
 
-        .profile-content {
-            padding: 2rem;
-        }
+      .profile-bio {
+        font-family: var(--tertiary-font);
+        font-size: 1.2rem;
+        width: 60%;
+        line-height: 1.6;
+        color: #333;
+      }
 
-        .blog-post {
-            background-color: var(--primary-bg);
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+      .profile-actions {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
 
-        .blog-post-thumbnail {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
+      .profile-button {
+        background-color: var(--background-color-1);
+        color: var(--primary-color);
+        padding: 12px 24px;
+        border: none;
+        border-radius: 5px;
+        font-family: var(--primary-font);
+        font-weight: bold;
+        font-size: 1.15rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
 
-        .blog-post-details {
-            flex-grow: 1;
-        }
+      .profile-button:hover {
+        background-color: var(--accent-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-        .blog-post-title {
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
+      .secondary-button {
+        background-color: #f0f0f0;
+        color: var(--secondary-color);
+      }
 
-        .blog-post-meta {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
+      .secondary-button:hover {
+        background-color: #e0e0e0;
+      }
 
-        .comment {
-            background-color: var(--primary-bg);
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
+      .profile-tabs {
+        display: flex;
+        gap: 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+      }
 
-        .comment-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
+      .profile-tab {
+        font-family: var(--secondary-font);
+        padding: 1rem 0;
+        cursor: pointer;
+        font-size: 1.2rem;
+        position: relative;
+        transition: color 0.3s ease;
+      }
 
-        .comment-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 1rem;
-        }
+      .profile-tab:hover {
+        color: var(--accent-color);
+      }
 
-        @media (max-width: 768px) {
-            .profile-container {
-                grid-template-columns: 1fr;
-            }
+      .profile-tab.active {
+        font-weight: bold;
+        color: var(--accent-color);
+      }
+
+      .profile-tab.active::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: var(--accent-color);
+      }
+
+      .section-content {
+        display: none;
+      }
+
+      .section-content.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .section-styling {
+        margin: 0;
+      }
+
+      .user-content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .content-card {
+        background-color: var(--background-color-2);
+        border-radius: 10px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .content-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .content-card img {
+        width: 100%;
+        border-radius: 10px;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .content-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .content-card-title {
+        font-family: var(--tertiary-font);
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--background-color-1);
+      }
+
+      .content-card-description {
+        font-family: var(--secondary-font);
+        font-size: 1rem;
+        color: #666;
+      }
+
+      .category-filter {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .category-button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 20px;
+        font-family: var(--secondary-font);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .category-button.active {
+        background-color: var(--accent-color);
+        color: white;
+      }
+
+      .category-button:not(.active) {
+        background-color: #f0f0f0;
+        color: #666;
+      }
+
+      .about-section,
+      .collections-section {
+        background-color: var(--background-color-2);
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .about-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .about-info,
+      .skills-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .collections-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .collection-item {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .collection-item:hover {
+        transform: scale(1.05);
+      }
+
+      .collection-item img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
         }
+        to {
+          opacity: 1;
+        }
+      }
     </style>
-</head>
-<body>
-    <div class="profile-container">
-        <!-- Profile Sidebar -->
-        <div class="profile-sidebar">
-            <img src="/api/placeholder/150/150" alt="Profile Avatar" class="profile-avatar">
-            <div class="profile-name">John Doe</div>
-            <div class="profile-username">@johndoe</div>
-            
+  </head>
+  <body>
+    <div class="container">
+      <div class="profile-container">
+        <div class="profile-header">
+          <img
+            src="/avatars/default-avatar.png"
+            alt="Profile"
+            class="profile-image"
+          />
+          <div class="profile-info">
+            <h1 class="profile-name">Suhas Kanwar</h1>
+            <p class="profile-username">@sophia_writes</p>
             <div class="profile-stats">
-                <div class="stat-item">
-                    <span class="stat-number">42</span>
-                    Blogs
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">256</span>
-                    Followers
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">128</span>
-                    Following
-                </div>
+              <div class="stat">
+                <span class="stat-number">42</span>
+                <span class="stat-label">Posts</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">1.2K</span>
+                <span class="stat-label">Followers</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">764</span>
+                <span class="stat-label">Following</span>
+              </div>
             </div>
+          </div>
         </div>
 
-        <!-- Profile Main Content -->
-        <div class="profile-main">
-            <!-- Profile Tabs -->
-            <div class="profile-tabs">
-                <div class="profile-tab active" data-tab="blogs">Blogs</div>
-                <div class="profile-tab" data-tab="comments">Comments</div>
-                <div class="profile-tab" data-tab="about">About</div>
-            </div>
+        <p class="profile-bio">
+          Tech writer and digital nomad exploring the intersection of
+          technology, creativity, and human experience. Passionate about
+          storytelling and innovation.
+        </p>
 
-            <!-- Profile Content -->
-            <div class="profile-content">
-                <!-- Blogs Tab -->
-                <div class="tab-content" id="blogs" style="display: block;">
-                    <div class="blog-post">
-                        <img src="/api/placeholder/100/100" alt="Blog Thumbnail" class="blog-post-thumbnail">
-                        <div class="blog-post-details">
-                            <div class="blog-post-title">The Future of Blogging</div>
-                            <div class="blog-post-meta">
-                                Published on June 15, 2024 • 5 min read
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blog-post">
-                        <img src="/api/placeholder/100/100" alt="Blog Thumbnail" class="blog-post-thumbnail">
-                        <div class="blog-post-details">
-                            <div class="blog-post-title">10 Tips for Content Creation</div>
-                            <div class="blog-post-meta">
-                                Published on May 22, 2024 • 7 min read
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Comments Tab -->
-                <div class="tab-content" id="comments" style="display: none;">
-                    <div class="comment">
-                        <div class="comment-header">
-                            <img src="/api/placeholder/40/40" alt="Commenter Avatar" class="comment-avatar">
-                            <strong>Jane Smith</strong> commented on <a href="#">The Future of Blogging</a>
-                        </div>
-                        <p>Great insights! I really appreciate the depth of analysis in this post.</p>
-                    </div>
-                    <div class="comment">
-                        <div class="comment-header">
-                            <img src="/api/placeholder/40/40" alt="Commenter Avatar" class="comment-avatar">
-                            <strong>Mike Johnson</strong> commented on <a href="#">10 Tips for Content Creation</a>
-                        </div>
-                        <p>These tips are extremely helpful for new content creators.</p>
-                    </div>
-                </div>
-
-                <!-- About Tab -->
-                <div class="tab-content" id="about" style="display: none;">
-                    <h3>About Me</h3>
-                    <p>Passionate writer and content creator with a love for technology, travel, and storytelling. Always eager to learn and share knowledge through blogging.</p>
-                    
-                    <h4>Contact Information</h4>
-                    <p>Email: john.doe@example.com</p>
-                    <p>Location: San Francisco, CA</p>
-                </div>
-            </div>
+        <div class="profile-actions">
+          <button class="profile-button">
+            <i class="fas fa-edit"></i> Edit Profile
+          </button>
+          <button class="profile-button secondary-button">
+            <i class="fas fa-share-alt"></i> Share Profile
+          </button>
         </div>
+
+        <div class="profile-tabs">
+          <div class="profile-tab active" data-section="posts">Posts</div>
+          <div class="profile-tab" data-section="about">About</div>
+          <div class="profile-tab" data-section="collections">Collections</div>
+        </div>
+
+        <!-- Posts Section -->
+        <div class="section-content active" id="posts-section">
+          <div class="section-styling">
+            <div class="category-filter">
+              <button class="category-button active" data-category="all">
+                All
+              </button>
+              <button class="category-button" data-category="technology">
+                Technology
+              </button>
+              <button class="category-button" data-category="lifestyle">
+                Lifestyle
+              </button>
+              <button class="category-button" data-category="ethics">
+                Ethics
+              </button>
+            </div>
+            <div class="user-content" id="content-container">
+              <div class="content-card" data-category="technology">
+                <img src="/api/placeholder/300/250" alt="Content Image" />
+                <h3 class="content-card-title">AI Revolution</h3>
+                <p class="content-card-description">
+                  Exploring the transformative potential of artificial
+                  intelligence in modern society.
+                </p>
+              </div>
+              <div class="content-card" data-category="lifestyle">
+                <img src="/api/placeholder/300/250" alt="Content Image" />
+                <h3 class="content-card-title">Digital Nomad Life</h3>
+                <p class="content-card-description">
+                  Insights into working remotely and living a
+                  location-independent lifestyle.
+                </p>
+              </div>
+              <div class="content-card" data-category="ethics">
+                <img src="/api/placeholder/300/250" alt="Content Image" />
+                <h3 class="content-card-title">Tech Ethics</h3>
+                <p class="content-card-description">
+                  Discussing the ethical considerations in emerging
+                  technologies.
+                </p>
+              </div>
+              <div class="content-card" data-category="technology">
+                <img src="/api/placeholder/300/250" alt="Content Image" />
+                <h3 class="content-card-title">Machine Learning</h3>
+                <p class="content-card-description">
+                  Deep dive into machine learning algorithms and their
+                  real-world applications.
+                </p>
+              </div>
+              <div class="content-card" data-category="lifestyle">
+                <img src="/api/placeholder/300/250" alt="Content Image" />
+                <h3 class="content-card-title">Remote Work Tools</h3>
+                <p class="content-card-description">
+                  Top productivity tools for digital nomads and remote workers.
+                </p>
+              </div>
+              <div class="content-card" data-category="ethics">
+                <img src="/api/placeholder/300/250" alt="Content Image" />
+                <h3 class="content-card-title">AI and Privacy</h3>
+                <p class="content-card-description">
+                  Balancing technological innovation with individual privacy
+                  rights.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="section-content" id="about-section">
+          <div class="about-section">
+            <div class="about-details">
+              <div class="about-info">
+                <h2>Personal Information</h2>
+                <p><strong>Name:</strong> Sophia Rodriguez</p>
+                <p><strong>Location:</strong> Remote / Global Nomad</p>
+                <p><strong>Email:</strong> sophia.writes@example.com</p>
+                <p><strong>Joined:</strong> March 2020</p>
+              </div>
+              <div class="skills-info">
+                <h2>Professional Skills</h2>
+                <ul>
+                  <li>Technical Writing</li>
+                  <li>Content Strategy</li>
+                  <li>AI Research</li>
+                  <li>Digital Marketing</li>
+                  <li>Public Speaking</li>
+                </ul>
+              </div>
+            </div>
+            <div class="bio-extended">
+              <h2>About Me</h2>
+              <p>
+                As a digital nomad and tech writer, I'm passionate about
+                exploring the cutting-edge intersections of technology, human
+                experience, and social innovation. My work focuses on
+                demystifying complex technological concepts and highlighting
+                their real-world implications.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collections Section -->
+        <div class="section-content" id="collections-section">
+          <div class="collections-section">
+            <div class="collections-grid">
+              <div class="collection-item">
+                <img src="/api/placeholder/100/100" alt="AI Insights" />
+                <h3>AI Insights</h3>
+                <p>Curated articles on artificial intelligence</p>
+              </div>
+              <div class="collection-item">
+                <img
+                  src="/api/placeholder/100/100"
+                  alt="Digital Nomad Resources"
+                />
+                <h3>Digital Nomad Resources</h3>
+                <p>Tools and guides for remote work</p>
+              </div>
+              <div class="collection-item">
+                <img src="/api/placeholder/100/100" alt="Tech Ethics Library" />
+                <h3>Tech Ethics Library</h3>
+                <p>Exploring ethical considerations in technology</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
-        // Tab switching functionality
-        document.querySelectorAll('.profile-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active class from all tabs
-                document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
-                
-                // Add active class to clicked tab
-                tab.classList.add('active');
+      document.addEventListener("DOMContentLoaded", () => {
+        const contentContainer = document.getElementById("content-container");
+        const categoryButtons = document.querySelectorAll(".category-button");
+        const contentCards = document.querySelectorAll(".content-card");
+        const profileTabs = document.querySelectorAll(".profile-tab");
+        const sectionContents = document.querySelectorAll(".section-content");
 
-                // Hide all tab contents
-                document.querySelectorAll('.tab-content').forEach(content => {
-                    content.style.display = 'none';
-                });
+        // Category Filtering
+        categoryButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            categoryButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
 
-                // Show selected tab content
-                document.getElementById(tab.dataset.tab).style.display = 'block';
+            const category = button.dataset.category;
+
+            contentCards.forEach((card) => {
+              if (category === "all" || card.dataset.category === category) {
+                card.style.display = "flex";
+              } else {
+                card.style.display = "none";
+              }
             });
+          });
         });
+
+        // Tab Switching
+        profileTabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            // Remove active class from all tabs
+            profileTabs.forEach((t) => t.classList.remove("active"));
+            // Add active class to clicked tab
+            tab.classList.add("active");
+
+            // Hide all section contents
+            sectionContents.forEach((section) =>
+              section.classList.remove("active")
+            );
+
+            // Show the corresponding section
+            const sectionId = `${tab.dataset.section}-section`;
+            document.getElementById(sectionId).classList.add("active");
+          });
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
