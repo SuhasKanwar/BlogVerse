@@ -33,13 +33,17 @@
         </p>
 
         <div class="profile-actions">
-          <button class="profile-button">
-            <i class="fas fa-edit"></i> Edit Profile
-          </button>
+          <% if (user._id.toString() === currUser._id.toString()) { %>
+            <a href="/profile/edit/<%= currUser._id %>">
+              <button class="profile-button">
+                <i class="fas fa-edit"></i> Edit Profile
+              </button>
+            </a>
+          <% } %>
           <button class="profile-button secondary-button">
             <i class="fas fa-share-alt"></i> Share Profile
           </button>
-        </div>
+        </div>        
 
         <div class="profile-tabs">
             <div class="profile-tab active" data-section="about">About</div>
