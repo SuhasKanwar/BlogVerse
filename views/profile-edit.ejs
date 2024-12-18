@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/styles/profile-edit.css" />
+</head>
+<body>
+    <div class="container">
+        <%- include('partials/header') %>
+        <div class="profile-container">
+            <h1>Edit Profile</h1>
+            <form action="/profile/edit" method="POST">
+                <!-- Profile Image Upload -->
+                <div class="form-group">
+                    <label for="profileImage">Profile Image</label>
+                    <input type="file" name="profileImage" id="profileImage">
+                </div>
+
+                <!-- Bio -->
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea name="bio" id="bio" rows="5" placeholder="Write something about yourself..."><%= user.bio %></textarea>
+                </div>
+
+                <!-- Social Links -->
+                <div class="form-group">
+                    <label for="facebook">Facebook</label>
+                    <input type="url" name="facebook" id="facebook" value="<%= user.socials.facebook %>" placeholder="Facebook link">
+                </div>
+                <div class="form-group">
+                    <label for="twitter">Twitter</label>
+                    <input type="url" name="twitter" id="twitter" value="<%= user.socials.twitter %>" placeholder="Twitter link">
+                </div>
+                <div class="form-group">
+                    <label for="instagram">Instagram</label>
+                    <input type="url" name="instagram" id="instagram" value="<%= user.socials.instagram %>" placeholder="Instagram link">
+                </div>
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn</label>
+                    <input type="url" name="linkedin" id="linkedin" value="<%= user.socials.linkedin %>" placeholder="LinkedIn link">
+                </div>
+                <div class="form-group">
+                    <label for="github">GitHub</label>
+                    <input type="url" name="github" id="github" value="<%= user.socials.github %>" placeholder="GitHub link">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn">Save Changes</button>
+            </form>
+        </div>
+        <%- include('partials/footer') %>
+    </div>
+    <script src="profile.js"></script>
+</body>
+</html>

@@ -28,13 +28,48 @@ const userSchema = mongoose.Schema({
         type: String,
         enum: ["USER", "ADMIN"],
         default: "USER"
+    },
+    bio: {
+        type: String,
+        default: ""
+    },
+    dateOfBirth: {
+        type: Date,
+        required: false
+    },
+    gender: {
+        type: String,
+        enum: ["Male", "Female"],
+        default: ""
+    },
+    socials: {
+        facebook: {
+            type: String,
+            default: ""
+        },
+        twitter: {
+            type: String,
+            default: ""
+        },
+        instagram: {
+            type: String,
+            default: ""
+        },
+        linkedin: {
+            type: String,
+            default: ""
+        },
+        github: {
+            type: String,
+            default: ""
+        }
     }
-}, { timeStamps: true });
+}, { timestamps: true });
 
 userSchema.pre("save", function(next) {
     const user = this;
     
-    if(!user.isModified("password")){
+    if (!user.isModified("password")) {
         return;
     }
     
@@ -49,10 +84,10 @@ userSchema.pre("save", function(next) {
     next();
 });
 
-userSchema.static('matchPassword', async function(email, password){
+userSchema.static('matchPassword', async function(email, password) {
     const user = await this.findOne({ email });
-    if(!user){
-        throw new error("user not found");
+    if (!user) {
+        throw new error("User not found");
     }
 
     const salt = user.salt;
@@ -60,16 +95,16 @@ userSchema.static('matchPassword', async function(email, password){
 
     const userProvidedHash = createHmac("sha256", salt)
         .update(password)
-        .digest("hex")
+        .digest("hex");
     
-    if(hashedPassword !== userProvidedHash){
-        throw new error("invalid password");
+    if (hashedPassword !== userProvidedHash) {
+        throw new error("Invalid password");
     }
 
     const token = createTokenForUser(user);
     
     return token;
-})
+});
 
 const users = mongoose.model("users", userSchema);
 
