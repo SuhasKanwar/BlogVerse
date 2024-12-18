@@ -8,60 +8,150 @@
   </head>
   <body>
     <div class="container">
-        <%- include('partials/header') %>
+      <%- include('partials/header') %>
       <div class="profile-container">
         <div class="profile-header">
-          <img
-            src="<%= user.profileImageURL %>"
-            alt="Profile"
-            class="profile-image"
-          />
-          <div class="profile-info">
-            <h1 class="profile-name"><%= user.fullName %></h1>
-            <p class="profile-username">@<%= user.email.split('@')[0] %></p>
-            <div class="profile-stats">
-              <div class="stat">
-                <span class="stat-number"><%= blogs.length %></span>
-                <span class="stat-label">Posts</span>
+          <div class="profile-header-content">
+            <img
+              src="<%= user.profileImageURL %>"
+              alt="Profile"
+              class="profile-image"
+            />
+            <div class="profile-info">
+              <h1 class="profile-name"><%= user.fullName %></h1>
+              <p class="profile-username">@<%= user.email.split('@')[0] %></p>
+              <div class="profile-stats">
+                <div class="stat">
+                  <span class="stat-number"><%= blogs.length %></span>
+                  <span class="stat-label">Posts</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <p class="profile-bio">
-          <%= user.bio || 'Tell us something about yourself!' %>
+          <%= user.bio || 'Share a bit about yourself and your journey!' %>
         </p>
 
         <div class="profile-actions">
           <% if (user._id.toString() === currUser._id.toString()) { %>
-            <a href="/profile/edit/<%= currUser._id %>">
-              <button class="profile-button">
-                <i class="fas fa-edit"></i> Edit Profile
+            <a href="/profile/edit/<%= currUser._id %>" class="action-link">
+              <button class="profile-button" aria-label="Edit Profile">
+                <i class="fas fa-user-edit"></i> Edit Profile
               </button>
             </a>
           <% } %>
-          <button class="profile-button secondary-button">
-            <i class="fas fa-share-alt"></i> Share Profile
+          <button class="profile-button secondary-button" aria-label="Share Profile">
+            <i class="fas fa-share-nodes"></i> Share Profile
           </button>
           <% if (user._id.toString() === currUser._id.toString()) { %>
-            <a href="/login/otp">
-              <button class="profile-button ternary-button">
-                <i class="fas fa-edit"></i> Change Password
+            <a href="/login/otp" class="action-link">
+              <button class="profile-button ternary-button" aria-label="Change Password">
+                <i class="fas fa-lock"></i> Change Password
               </button>
             </a>
           <% } %>
         </div>        
 
         <div class="profile-tabs">
-            <div class="profile-tab active" data-section="about">About</div>
-            <div class="profile-tab" data-section="posts">Posts</div>
-            <div class="profile-tab" data-section="comments">Comments</div>
+          <div class="profile-tab active" data-section="about">
+            <i class="fas fa-user-circle"></i> About
+          </div>
+          <div class="profile-tab" data-section="posts">
+            <i class="fas fa-blog"></i> Posts
+          </div>
+          <div class="profile-tab" data-section="comments">
+            <i class="fas fa-comment-dots"></i> Comments
+          </div>
         </div>
 
         <div class="section-content active" id="about-section">
           <div class="about-section">
-            <h2>About Me</h2>
-            <p><%= user.bio || 'Hi, I\'m a passionate tech enthusiast, and I write about technology, creativity, and innovation.' %></p>
+            <div class="about-personal-info">
+              <h2>About Me</h2>
+              
+              <% if (user.bio) { %>
+                <p class="bio-quote">
+                  <%= user.bio %>
+                </p>
+              <% } %>
+              
+              <% if (user.dateOfBirth) { %>
+                <div class="about-detail">
+                  <i class="fas fa-birthday-cake"></i>
+                  <div class="about-detail-text">
+                    <strong>Age</strong>
+                    <span><%= calculateAge(user.dateOfBirth) %> years old</span>
+                  </div>
+                </div>
+              <% } %>
+              
+              <% if (user.gender) { %>
+                <div class="about-detail">
+                  <i class="fas fa-venus-mars"></i>
+                  <div class="about-detail-text">
+                    <strong>Gender</strong>
+                    <span><%= user.gender %></span>
+                  </div>
+                </div>
+              <% } %>
+        
+              <% if (user.occupation) { %>
+                <div class="about-detail">
+                  <i class="fas fa-briefcase"></i>
+                  <div class="about-detail-text">
+                    <strong>Occupation</strong>
+                    <span><%= user.occupation %></span>
+                  </div>
+                </div>
+              <% } %>
+        
+              <% if (user.location) { %>
+                <div class="about-detail">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div class="about-detail-text">
+                    <strong>Location</strong>
+                    <span><%= user.location %></span>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+        
+            <div class="social-links">
+              <h3><i class="fas fa-share-alt"></i> Connect with Me</h3>
+              <div class="social-icons">
+                <% if (user.socials.facebook) { %>
+                  <a href="<%= user.socials.facebook %>" target="_blank" class="social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                  </a>
+                <% } %>
+                
+                <% if (user.socials.twitter) { %>
+                  <a href="<%= user.socials.twitter %>" target="_blank" class="social-icon" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                <% } %>
+                
+                <% if (user.socials.instagram) { %>
+                  <a href="<%= user.socials.instagram %>" target="_blank" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                <% } %>
+                
+                <% if (user.socials.linkedin) { %>
+                  <a href="<%= user.socials.linkedin %>" target="_blank" class="social-icon" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                <% } %>
+                
+                <% if (user.socials.github) { %>
+                  <a href="<%= user.socials.github %>" target="_blank" class="social-icon" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                  </a>
+                <% } %>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -69,10 +159,14 @@
           <div class="user-content">
             <% blogs.forEach(blog => { %>
               <div class="content-card">
-                <a href="/blog/<%= blog._id %>">
-                  <img src="<%= blog.coverImageURL %>" alt="<%= blog.title %>" />
-                  <h3 class="content-card-title"><%= blog.title %></h3>
-                  <p class="content-card-description"><%= blog.body.substring(0, 100) %>...</p>
+                <a href="/blog/<%= blog._id %>" class="content-link">
+                  <div class="content-image-container">
+                    <img src="<%= blog.coverImageURL %>" alt="<%= blog.title %>" />
+                  </div>
+                  <div class="content-text">
+                    <h3 class="content-card-title"><%= blog.title %></h3>
+                    <p class="content-card-description"><%= blog.body.substring(0, 100) %>...</p>
+                  </div>
                 </a>
               </div>
             <% }) %>
@@ -80,14 +174,20 @@
         </div>
 
         <div class="section-content" id="comments-section">
-          <h2>Your Comments on Blogs</h2>
+          <h2>Your Comments</h2>
           <div class="comments-list">
             <% comments.forEach(comment => { %>
               <div class="comment">
-                <p><strong><%= user.fullName %></strong>: "<%= comment.content %>"</p>
-                <p><em>Commented on: 
-                  <a href="/blog/<%= comment.blogID._id %>"><%= comment.blogID.title %></a>
-                </em></p>
+                <div class="comment-content">
+                  <p class="comment-text">
+                    <strong><%= user.fullName %></strong>: "<%= comment.content %>"
+                  </p>
+                  <p class="comment-meta">
+                    <em>Commented on: 
+                      <a href="/blog/<%= comment.blogID._id %>"><%= comment.blogID.title %></a>
+                    </em>
+                  </p>
+                </div>
               </div>
             <% }) %>
           </div>
