@@ -33,17 +33,17 @@
             </main>
 
             <div class="comments-wrapper">
-                <h2 class="comments-heading">Comments (<%= comments.length %>)</h2>
+                <% if (locals.user) { %>
+                    <form action="/blog/comment/<%= blog._id %>" method="post" class="comment-form">
+                        <img src="<%= locals.user.profileImageURL %>" alt="Profile Image" class="comment-avatar">
+                        <input type="text" name="content" placeholder="Add a comment..." class="comment-input">
+                        <button type="submit" class="comment-button">Submit</button>
+                    </form>
+                <% } else { %>
+                    <p class="sign-in-message">Sign-in to add comments</p>
+                <% } %>
+            
                 <div class="comments-container">
-                    <% if (locals.user) { %>
-                        <form action="/blog/comment/<%= blog._id %>" method="post" class="comment-form">
-                            <img src="<%= locals.user.profileImageURL %>" alt="Profile Image" class="comment-avatar">
-                            <input type="text" name="content" placeholder="Add a comment..." class="comment-input">
-                            <button type="submit" class="comment-button">Submit</button>
-                        </form>
-                    <% } else { %>
-                        <p class="sign-in-message">Sign-in to add comments</p>
-                    <% } %>
                     <% comments.forEach(comment => { %>
                         <div class="comment-card">
                             <img src="<%= comment.createdBy.profileImageURL %>" alt="Profile Image" class="comment-avatar">
@@ -60,6 +60,8 @@
                     <% }) %>
                 </div>
             </div>
+            
         </div>
+        <%- include('partials/footer')%>
     </body>
 </html>

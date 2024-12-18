@@ -1,14 +1,4 @@
-:root {
-    --background-color-1: #1E1E1E;
-    --background-color-2: #ffffff;
-    --primary-font: 'Inria Serif', serif;
-    --secondary-font: 'Inter', sans-serif;
-    --primary-color: #ffffff;
-    --secondary-color: #000000;
-    --accent-color: #4A90E2;
-}
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -35,9 +25,9 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 0.75rem 2rem;
-    background-color: var(--background-color-1);
-    color: var(--primary-color);
-    font-family: var(--secondary-font);
+    background-color: #1E1E1E;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
     font-size: 1.125rem;
     font-weight: 600;
     z-index: 1000;
@@ -70,15 +60,15 @@ a {
 }
 
 .logo-text {
-    font-family: var(--primary-font);
+    font-family: 'Inria Serif', serif;
     font-size: 1.3rem;
     font-weight: bold;
-    color: var(--primary-color);
+    color: #ffffff;
     transition: color 0.3s ease;
 }
 
 .logo-text:hover {
-    color: var(--accent-color);
+    color: #4A90E2;
 }
 
 .nav-container {
@@ -91,7 +81,7 @@ a {
 .cta-button, 
 .logout-link {
     text-decoration: none;
-    color: var(--primary-color);
+    color: #ffffff;
     position: relative;
     transition: color 0.3s ease;
 }
@@ -105,7 +95,7 @@ a {
     height: 2px;
     bottom: -4px;
     left: 0;
-    background-color: var(--accent-color);
+    background-color: #4A90E2;
     transition: width 0.3s ease;
 }
 
@@ -118,11 +108,11 @@ a {
 .header-links:hover,
 .cta-button:hover,
 .logout-link:hover {
-    color: var(--accent-color);
+    color: #4A90E2;
 }
 
 .cta-button {
-    background-color: var(--accent-color);
+    background-color: #4A90E2;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     font-weight: 600;

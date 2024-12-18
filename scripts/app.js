@@ -26,8 +26,9 @@ function setupFeatureSections(sectionClass) {
     
     features.forEach((feature, index) => {
         const explanation = feature.querySelector('.feature-explanation');
-        explanation.style.display = index === 0 ? 'block' : 'none';
         const icon = feature.querySelector('.feature i');
+        
+        explanation.style.display = index === 0 ? 'block' : 'none';
         if (index === 0) {
             icon.classList.add('icon-rotate');
         }
@@ -38,7 +39,7 @@ function setupFeatureSections(sectionClass) {
         const explanation = feature.querySelector('.feature-explanation');
         const icon = feature.querySelector('.feature i');
 
-        featureHead.addEventListener('click', () => {
+        function toggleFeature() {
             const currentDisplay = explanation.style.display;
 
             features.forEach((f) => {
@@ -48,7 +49,10 @@ function setupFeatureSections(sectionClass) {
 
             explanation.style.display = currentDisplay === 'none' ? 'block' : 'none';
             icon.classList.toggle('icon-rotate', currentDisplay === 'none');
-        });
+        }
+
+        featureHead.addEventListener('click', toggleFeature);
+        icon.addEventListener('click', toggleFeature);
     });
 }
 

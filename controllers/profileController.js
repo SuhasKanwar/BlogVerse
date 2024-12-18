@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
+const fs = require('fs');
+const path = require('path');
+
 const Blog = require("../models/blogs");
 const Comment = require("../models/comments");
 const Users = require("../models/users");
-const fs = require("fs");
-const path = require("path");
 
 exports.profileRender = async (req, res) => {
   const profileID = req.params.id;
@@ -66,31 +67,46 @@ exports.profileUpdateHandler = async (req, res) => {
       github,
     } = req.body;
 
-    // Find the user
     const user = await Users.findById(req.params.id);
     if (!user) {
       return res.status(404).send("User not found");
     }
 
-    // Handle profile image
     let profileImageURL = user.profileImageURL;
+    
     if (req.file) {
-      profileImageURL = `/avatars/${req.file.filename}`;
+      const newImagePath = `/avatars/${req.file.filename}`;
+      
+      if (
+        user.profileImageURL && 
+        user.profileImageURL !== '/avatars/default-avatar.png' && 
+        user.profileImageURL !== newImagePath
+      ) {
+        try {
+          const currentImageFilename = path.basename(user.profileImageURL);
+          
+          const currentImagePath = path.join(__dirname, '../public/avatars', currentImageFilename);
+          
+          await fs.unlink(currentImagePath);
+          console.log('Previous image deleted successfully');
+        } catch (deleteErr) {
+          console.error('Error deleting previous image:', deleteErr);
+        }
+      }
+      
+      profileImageURL = newImagePath;
     }
 
-    // Update user fields using direct assignment
     user.fullName = fullName;
     user.email = email;
     user.bio = bio;
     
-    // Only update date of birth if it's not empty
     if (dateOfBirth) {
       user.dateOfBirth = new Date(dateOfBirth);
     }
     
     user.gender = gender;
     
-    // Update social links
     user.socials = {
       facebook: facebook || '',
       twitter: twitter || '',
@@ -99,16 +115,14 @@ exports.profileUpdateHandler = async (req, res) => {
       github: github || ''
     };
 
-    // Update profile image
     user.profileImageURL = profileImageURL;
 
-    // Use findByIdAndUpdate instead of save()
     const updatedUser = await Users.findByIdAndUpdate(
       req.params.id, 
       user, 
       { 
-        new: true,  // Return the modified document
-        runValidators: true  // Run model validations
+        new: true,
+        runValidators: true
       }
     );
 
