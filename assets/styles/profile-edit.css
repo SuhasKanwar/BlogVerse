@@ -1,136 +1,236 @@
-/* Global Reset */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Full-Width Container */
-.container {
-    width: 100%;
-    font-family: "Inter", sans-serif;
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
-/* Profile Container */
+.page-container {
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #1a1a1a, #2d2d2d);
+    padding: 0;
+}
+
 .profile-container {
-    width: 100%;
-    background-color: #252424;
-    color: #eaeaea;
-    border-radius: 10px;
-    padding: 3rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-/* Profile Heading */
-.profile-container h1 {
-    font-size: 2.5rem;
+.profile-card {
+    background-color: #2a2a2a;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #333;
+    padding: 1.5rem;
+    border-bottom: 1px solid #404040;
+}
+
+.card-header h1 {
     color: #ffffff;
-    margin-bottom: 2rem;
+    font-size: 2rem;
     text-align: center;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: -0.025em;
 }
 
-/* Form */
-form {
+.card-content {
+    padding: 2rem;
+}
+
+.image-upload-container {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
+    justify-content: center;
+    margin-bottom: 2rem;
 }
 
-/* Form Group */
+.profile-image-wrapper {
+    position: relative;
+    width: 128px;
+    height: 128px;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #404040;
+}
+
+.profile-image-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #404040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 0.875rem;
+    border: 4px solid #404040;
+}
+
+.image-upload-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #404040;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.image-upload-button:hover {
+    background-color: #505050;
+}
+
+.image-upload-button input {
+    display: none;
+}
+
+.upload-icon {
+    color: #ffffff;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
+.full-width {
+    grid-column: 1 / -1;
+}
+
 label {
-    font-size: 1.2rem;
     color: #ffffff;
-    font-weight: bold;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.025em;
 }
 
 input, textarea {
-    width: 100%;
+    background-color: #333;
+    border: 1px solid #404040;
+    border-radius: 0.5rem;
     padding: 0.75rem 1rem;
-    background-color: #333333;
-    color: #eaeaea;
-    border: 1px solid #444;
-    border-radius: 5px;
-    font-size: 1rem;
+    color: #ffffff;
+    font-size: 0.9375rem;
+    font-family: inherit;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input:focus, textarea:focus {
-    border-color: #ffffff;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
 }
 
 textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 100px;
 }
 
-/* Buttons */
-button {
-    background-color: #333333;
+.social-links-section {
+    margin-top: 2rem;
+}
+
+.social-links-section h3 {
     color: #ffffff;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 5px;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+.social-links-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .social-links-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.form-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button {
+    background-color: #3b82f6;
+    color: #ffffff;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
     font-size: 1rem;
+    font-weight: 500;
+    border: none;
     cursor: pointer;
-    font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    align-self: center;
+    font-family: inherit;
 }
 
-button:hover {
-    background-color: #eaeaea;
-    color: #121212;
-    transform: translateY(-2px);
+.submit-button:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
 }
 
-button:active {
+.submit-button:active {
     transform: translateY(1px);
 }
 
-/* Reduce Unnecessary Margins and White Space */
-body, html {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    background-color: #121212;
-    color: #eaeaea;
-}
-
-/* Remove Padding Around Form Elements */
-form {
-    padding: 0;
-}
-
-/* Remove Side Margins */
-.profile-container {
-    margin: 0 auto;
-}
-
-/* Adjust for Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
     .profile-container {
-        padding: 2rem;
+        padding: 1rem;
     }
 
-    .profile-container h1 {
-        font-size: 2rem;
+    .card-content {
+        padding: 1.5rem;
     }
 
-    input, textarea {
-        padding: 0.5rem;
-        font-size: 0.9rem;
+    .card-header h1 {
+        font-size: 1.5rem;
     }
 
-    button {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
+    .submit-button {
+        width: 100%;
     }
 }

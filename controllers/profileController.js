@@ -61,6 +61,8 @@ exports.profileUpdateHandler = async (req, res) => {
       bio,
       dateOfBirth,
       gender,
+      occupation,
+      location,
       facebook,
       twitter,
       instagram,
@@ -108,6 +110,8 @@ exports.profileUpdateHandler = async (req, res) => {
     }
     
     user.gender = gender;
+    user.occupation = occupation;
+    user.location = location;
     
     user.socials = {
       facebook: facebook || '',
@@ -127,8 +131,6 @@ exports.profileUpdateHandler = async (req, res) => {
         runValidators: true
       }
     );
-
-    console.log("Updated User:", updatedUser);
 
     res.redirect(`/profile/${user._id}`);
   } catch (err) {

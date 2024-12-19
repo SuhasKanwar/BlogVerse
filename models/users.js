@@ -45,6 +45,12 @@ const userSchema = mongoose.Schema({
         type: String,
         enum: ["Male", "Female"],
     },
+    occupation: {
+        type: String
+    },
+    location: {
+        type: String
+    },
     socials: {
         facebook: {
             type: String,

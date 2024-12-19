@@ -50,10 +50,10 @@ body {
 }
 
 .profile-image {
-  width: 180px;
-  height: 180px;
+  width: 11rem;
+  height: 11rem;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
   border: 5px solid #eaeaea;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
@@ -83,14 +83,12 @@ body {
 .profile-bio {
   font-size: 1.2rem;
   max-width: 800px;
-  text-align: center;
   color: #d1d1d1;
   margin-top: 1.5rem;
 }
 
 .profile-actions {
   display: flex;
-  justify-content: center;
   gap: 1.5rem;
   margin-top: 1.5rem;
   flex-wrap: wrap;
@@ -123,7 +121,6 @@ body {
 
 .profile-tabs {
   display: flex;
-  justify-content: center;
   gap: 2rem;
   border-bottom: 2px solid #333333;
   margin-top: 2rem;
@@ -154,8 +151,6 @@ body {
 
 .section-content {
   display: none;
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 .section-content.active {
@@ -362,20 +357,14 @@ button:focus {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background-color: #2a2a2a;
   padding: 1rem;
   border-radius: 8px;
-}
-
-.about-detail:hover {
-  background-color: #333333;
 }
 
 .about-detail i {
   font-size: 1.5rem;
   color: #4A90E2;
   min-width: 40px;
-  text-align: center;
 }
 
 .about-detail-text {
@@ -386,7 +375,6 @@ button:focus {
 .about-section p {
   color: #d1d1d1;
   line-height: 1.7;
-  background-color: #2a2a2a;
   padding: 1.5rem;
   border-radius: 8px;
   font-style: italic;
@@ -394,7 +382,6 @@ button:focus {
 
 .social-links {
   grid-column: span 2;
-  background-color: #2a2a2a;
   padding: 1.5rem;
   border-radius: 8px;
   margin-top: 1rem;

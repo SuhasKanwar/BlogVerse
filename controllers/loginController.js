@@ -5,9 +5,10 @@ exports.loginRender = (req, res) => {
 }
 
 exports.signupHandler = async (req, res) => {
-    const { fullName, email, password } = req.body;
+    const { fullName, userName, email, password } = req.body;
     await Users.create({
         fullName,
+        userName,
         email,
         password
     });

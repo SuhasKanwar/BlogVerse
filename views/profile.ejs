@@ -2,8 +2,14 @@
 <html lang="en">
   <head>
     <%- include('partials/head') %>
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=Inter:wght@400;600&family=Inria+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=Inter:wght@400;600&family=Inria+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="/styles/profile.css" />
   </head>
   <body>
@@ -13,17 +19,29 @@
         <div class="profile-header">
           <div class="profile-header-content">
             <img
-              src="<%= user.profileImageURL %>"
+              src="<%= user.profileImageURL || '/images/default-profile.png' %>"
               alt="Profile"
               class="profile-image"
             />
             <div class="profile-info">
-              <h1 class="profile-name"><%= user.fullName %></h1>
-              <p class="profile-username">@<%= user.email.split('@')[0] %></p>
+              <h1 class="profile-name">
+                <%= user.fullName || 'No Name Provided' %>
+              </h1>
+              <p class="profile-username">
+                @<%= user.userName || 'No Username Available' %>
+              </p>
               <div class="profile-stats">
                 <div class="stat">
-                  <span class="stat-number"><%= blogs.length %></span>
+                  <span class="stat-number"
+                    ><%= blogs ? blogs.length : 0 %></span
+                  >
                   <span class="stat-label">Posts</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-number"
+                    ><%= comments ? comments.length : 0 %></span
+                  >
+                  <span class="stat-label">Comments</span>
                 </div>
               </div>
             </div>
@@ -35,24 +53,32 @@
         </p>
 
         <div class="profile-actions">
-          <% if (user._id.toString() === currUser._id.toString()) { %>
-            <a href="/profile/edit/<%= currUser._id %>" class="action-link">
-              <button class="profile-button" aria-label="Edit Profile">
-                <i class="fas fa-user-edit"></i> Edit Profile
-              </button>
-            </a>
+          <% if (user && currUser && user._id.toString() ===
+          currUser._id.toString()) { %>
+          <a href="/profile/edit/<%= currUser._id %>" class="action-link">
+            <button class="profile-button" aria-label="Edit Profile">
+              <i class="fas fa-user-edit"></i> Edit Profile
+            </button>
+          </a>
           <% } %>
-          <button class="profile-button secondary-button" aria-label="Share Profile">
+          <button
+            class="profile-button secondary-button"
+            aria-label="Share Profile"
+          >
             <i class="fas fa-share-nodes"></i> Share Profile
           </button>
-          <% if (user._id.toString() === currUser._id.toString()) { %>
-            <a href="/login/otp" class="action-link">
-              <button class="profile-button ternary-button" aria-label="Change Password">
-                <i class="fas fa-lock"></i> Change Password
-              </button>
-            </a>
+          <% if (user && currUser && user._id.toString() ===
+          currUser._id.toString()) { %>
+          <a href="/login/otp" class="action-link">
+            <button
+              class="profile-button ternary-button"
+              aria-label="Change Password"
+            >
+              <i class="fas fa-lock"></i> Change Password
+            </button>
+          </a>
           <% } %>
-        </div>        
+        </div>
 
         <div class="profile-tabs">
           <div class="profile-tab active" data-section="about">
@@ -68,131 +94,119 @@
 
         <div class="section-content active" id="about-section">
           <div class="about-section">
-            <div class="about-personal-info">
-              <h2>About Me</h2>
-              
-              <% if (user.bio) { %>
-                <p class="bio-quote">
-                  <%= user.bio %>
-                </p>
-              <% } %>
-              
-              <% if (user.dateOfBirth) { %>
-                <div class="about-detail">
-                  <i class="fas fa-birthday-cake"></i>
-                  <div class="about-detail-text">
-                    <strong>Age</strong>
-                    <span><%= calculateAge(user.dateOfBirth) %> years old</span>
-                  </div>
-                </div>
-              <% } %>
-              
-              <% if (user.gender) { %>
-                <div class="about-detail">
-                  <i class="fas fa-venus-mars"></i>
-                  <div class="about-detail-text">
-                    <strong>Gender</strong>
-                    <span><%= user.gender %></span>
-                  </div>
-                </div>
-              <% } %>
-        
-              <% if (user.occupation) { %>
-                <div class="about-detail">
-                  <i class="fas fa-briefcase"></i>
-                  <div class="about-detail-text">
-                    <strong>Occupation</strong>
-                    <span><%= user.occupation %></span>
-                  </div>
-                </div>
-              <% } %>
-        
-              <% if (user.location) { %>
-                <div class="about-detail">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <div class="about-detail-text">
-                    <strong>Location</strong>
-                    <span><%= user.location %></span>
-                  </div>
-                </div>
-              <% } %>
-            </div>
-        
-            <div class="social-links">
-              <h3><i class="fas fa-share-alt"></i> Connect with Me</h3>
-              <div class="social-icons">
-                <% if (user.socials.facebook) { %>
-                  <a href="<%= user.socials.facebook %>" target="_blank" class="social-icon" aria-label="Facebook">
-                    <i class="fab fa-facebook"></i>
-                  </a>
-                <% } %>
-                
-                <% if (user.socials.twitter) { %>
-                  <a href="<%= user.socials.twitter %>" target="_blank" class="social-icon" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                <% } %>
-                
-                <% if (user.socials.instagram) { %>
-                  <a href="<%= user.socials.instagram %>" target="_blank" class="social-icon" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                <% } %>
-                
-                <% if (user.socials.linkedin) { %>
-                  <a href="<%= user.socials.linkedin %>" target="_blank" class="social-icon" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                <% } %>
-                
-                <% if (user.socials.github) { %>
-                  <a href="<%= user.socials.github %>" target="_blank" class="social-icon" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                  </a>
-                <% } %>
-              </div>
-            </div>
-          </div>
+  <div class="about-personal-info">
+    <h2>About Me</h2>
+    <% if (user.dateOfBirth) { %>
+    <div class="about-detail">
+      <i class="fas fa-birthday-cake"></i>
+      <div class="about-detail-text">
+        <strong>Age</strong>
+        <span><%= user.age || 'Not Provided' %></span>
+      </div>
+    </div>
+    <% } else { %>
+    <p>No date of birth provided.</p>
+    <% } %>
+
+    <% if (user.gender) { %>
+    <div class="about-detail">
+      <i class="fas fa-venus-mars"></i>
+      <div class="about-detail-text">
+        <strong>Gender</strong>
+        <span><%= user.gender %></span>
+      </div>
+    </div>
+    <% } else { %>
+    <p>No gender specified.</p>
+    <% } %>
+
+    <% if (user.location) { %>
+    <div class="about-detail">
+      <i class="fas fa-map-marker-alt"></i>
+      <div class="about-detail-text">
+        <strong>Location</strong>
+        <span><%= user.location %></span>
+      </div>
+    </div>
+    <% } else { %>
+    <p>Location not specified.</p>
+    <% } %>
+  </div>
+
+  <div class="social-links">
+    <h3><i class="fas fa-share-alt"></i> Connect with Me</h3>
+    <div class="social-icons">
+      <% if (user.socials && user.socials.linkedin) { %>
+      <a
+        href="<%= user.socials.linkedin %>"
+        target="_blank"
+        class="social-icon"
+        aria-label="LinkedIn"
+      >
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <% } %>
+      <!-- Add more social icons here -->
+    </div>
+  </div>
+</div>
+
         </div>
 
         <div class="section-content" id="posts-section">
           <div class="user-content">
-            <% blogs.forEach(blog => { %>
-              <div class="content-card">
-                <a href="/blog/<%= blog._id %>" class="content-link">
-                  <div class="content-image-container">
-                    <img src="<%= blog.coverImageURL %>" alt="<%= blog.title %>" />
-                  </div>
-                  <div class="content-text">
-                    <h3 class="content-card-title"><%= blog.title %></h3>
-                    <p class="content-card-description"><%= blog.body.substring(0, 100) %>...</p>
-                  </div>
-                </a>
-              </div>
-            <% }) %>
+            <% if (blogs && blogs.length > 0) { %> <% blogs.forEach(blog => { %>
+            <div class="content-card">
+              <a href="/blog/<%= blog._id %>" class="content-link">
+                <div class="content-image-container">
+                  <img
+                    src="<%= blog.coverImageURL || '/images/default-blog.png' %>"
+                    alt="<%= blog.title || 'Untitled Blog' %>"
+                  />
+                </div>
+                <div class="content-text">
+                  <h3 class="content-card-title">
+                    <%= blog.title || 'Untitled Blog' %>
+                  </h3>
+                  <p class="content-card-description">
+                    <%= blog.body.substring(0, 100) || 'No content available.'
+                    %>...
+                  </p>
+                </div>
+              </a>
+            </div>
+            <% }) %> <% } else { %>
+            <p>No blogs to display.</p>
+            <% } %>
           </div>
         </div>
 
         <div class="section-content" id="comments-section">
           <h2>Your Comments</h2>
           <div class="comments-list">
-            <% comments.forEach(comment => { %>
-              <div class="comment">
-                <div class="comment-content">
-                  <p class="comment-text">
-                    <strong><%= user.fullName %></strong>: "<%= comment.content %>"
-                  </p>
-                  <p class="comment-meta">
-                    <em>Commented on: 
-                      <a href="/blog/<%= comment.blogID._id %>"><%= comment.blogID.title %></a>
-                    </em>
-                  </p>
-                </div>
+            <% if (comments && comments.length > 0) { %> <%
+            comments.forEach(comment => { %>
+            <div class="comment">
+              <div class="comment-content">
+                <p class="comment-text">
+                  <strong><%= user.fullName || 'Anonymous' %></strong>: "<%=
+                  comment.content || 'No content available.' %>"
+                </p>
+                <p class="comment-meta">
+                  <em
+                    >Commented on:
+                    <a href="/blog/<%= comment.blogID._id %>"
+                      ><%= comment.blogID.title || 'Untitled Blog' %></a
+                    >
+                  </em>
+                </p>
               </div>
-            <% }) %>
+            </div>
+            <% }) %> <% } else { %>
+            <p>No comments to display.</p>
+            <% } %>
           </div>
         </div>
-
       </div>
       <%- include('partials/footer') %>
     </div>
