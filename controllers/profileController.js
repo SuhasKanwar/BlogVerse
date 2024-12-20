@@ -18,9 +18,7 @@ exports.profileRender = async (req, res) => {
       return res.status(400).send("Invalid profile ID");
     }
 
-    const userBlogs = await Blog.find({ createdBy: profileID }).sort({
-      createdAt: -1,
-    });
+    const userBlogs = await Blog.find({ createdBy: profileID }).sort({createdAt: -1}).populate("createdBy");
 
     const userComments = await Comment.find({ createdBy: profileID })
       .populate("blogID")

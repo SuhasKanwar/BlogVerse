@@ -11,7 +11,7 @@
         <main class="collections-container">
             <h1 class="collections-heading">Latest Articles</h1>
             <div class="carousel-container">
-                <img src="images/latest-article-banner.png" alt="latest-articles" class="latest-articles">
+                <img src="images/latest-article-banner.jpg" alt="latest-articles" class="latest-articles">
             </div>
 
             <div class="search-container">
@@ -29,21 +29,27 @@
                             <% blogs.filter(blog => blog.category === category).forEach(blog => { %>
                                 <a href="blog/<%= blog._id %>">
                                     <div class="card">
-                                        <img src="<%= blog.coverImageURL %>" alt="Blog Card Cover" class="cover-img">
+                                        <span class="category-tag"><%= blog.category %></span>
+                                        <div class="cover-img-container">
+                                            <img src="<%= blog.coverImageURL %>" alt="Blog Card Cover" class="cover-img">
+                                        </div>
                                         <h3 class="blog-head"><%= blog.title %></h3>
                                         <p class="blog-description">
                                             <%= blog.body.substring(0, 150) %>...
                                         </p>
-                                        <% if (blog.createdAt) { %>
-                                            <p class="post-date">Posted on <%= blog.createdAt.toLocaleDateString() %></p>
-                                        <% } else { %>
-                                            <p class="post-date">Posted on Unknown Date</p>
-                                        <% } %>
+                                        <p class="post-date">Posted on <%= blog.createdAt ? blog.createdAt.toLocaleDateString() : 'Unknown Date' %></p>
+                                        <div class="author-details">
+                                            <a href="/profile/<%= blog.createdBy._id %>" class="author-profile-link">
+                                                <img src="<%= blog.createdBy.profileImageURL %>" alt="<%= blog.createdBy.fullName %>'s profile" class="author-profile-img">
+                                            </a>
+                                            <p class="author-name"><%= blog.createdBy.fullName %></p>
+                                        </div>
                                     </div>
                                 </a>
                             <% }) %>
                         </div>
                     </div>
+                    
                 <% }); %>
             </div>
         </main>
