@@ -33,6 +33,10 @@ const userSchema = mongoose.Schema({
         enum: ["USER", "ADMIN"],
         default: "USER"
     },
+    isPremium: {
+        type: Boolean,
+        default: false
+    },
     bio: {
         type: String,
         default: ""
