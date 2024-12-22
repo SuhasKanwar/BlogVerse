@@ -176,6 +176,7 @@ body {
 .toolbar-group {
     display: flex;
     gap: 0.25rem;
+    align-items: center;
 }
 
 .toolbar-button {
