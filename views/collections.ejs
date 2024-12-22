@@ -29,32 +29,30 @@
                             <% blogs.filter(blog => blog.category === category).forEach(blog => { %>
                                 <a href="blog/<%= blog._id %>">
                                     <div class="card">
-                                        <span class="category-tag"><%= blog.category %></span>
                                         <div class="cover-img-container">
-                                            <img src="<%= blog.coverImageURL %>" alt="Blog Card Cover" class="cover-img">
+                                            <img src="<%= blog.coverImageURL || 'images/default-cover.jpg' %>" alt="Blog Card Cover" class="cover-img">
                                         </div>
-                                        <h3 class="blog-head"><%= blog.title %></h3>
+                                        <h3 class="blog-head"><%= blog.title.length > 20 ? blog.title.substring(0, 20) + '...' : blog.title %></h3>
                                         <p class="blog-description">
-                                            <%= blog.body.substring(0, 150) %>...
+                                            <%= blog.body ? blog.body.substring(0, 150) : 'No description available.' %>...
                                         </p>
                                         <p class="post-date">Posted on <%= blog.createdAt ? blog.createdAt.toLocaleDateString() : 'Unknown Date' %></p>
                                         <div class="author-details">
                                             <a href="/profile/<%= blog.createdBy._id %>" class="author-profile-link">
-                                                <img src="<%= blog.createdBy.profileImageURL %>" alt="<%= blog.createdBy.fullName %>'s profile" class="author-profile-img">
+                                                <img src="<%= blog.createdBy.profileImageURL || 'images/default-profile.jpg' %>" alt="<%= blog.createdBy.fullName || 'Unknown Author' %>'s profile" class="author-profile-img">
                                             </a>
-                                            <p class="author-name"><%= blog.createdBy.fullName %></p>
+                                            <p class="author-name"><%= blog.createdBy.fullName || 'Unknown Author' %></p>
                                         </div>
                                     </div>
                                 </a>
                             <% }) %>
                         </div>
                     </div>
-                    
                 <% }); %>
             </div>
         </main>
         <%- include('partials/footer') %>
     </div>
-    <script src="collections.js"></script>
+    <script src="/collections.js"></script>
 </body>
 </html>
