@@ -42,11 +42,13 @@ const staticRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const blogRouter = require('./routes/blog');
 const profileRouter = require('./routes/profile');
+const otpRouter = require('./routes/otp');
 
 app.use('/', staticRouter);
 app.use('/user', userRouter);
 app.use('/blog', blogRouter);
 app.use('/profile', profileRouter);
+app.use('/otp', otpRouter);
 
 app.listen(PORT, (error) => {
     if(error){

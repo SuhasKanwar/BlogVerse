@@ -72,6 +72,7 @@
           <button
             class="profile-button ternary-button"
             aria-label="Change Password"
+            id="change-password-button"
           >
             <i class="fas fa-lock"></i> Change Password
           </button>
@@ -269,6 +270,17 @@
       </div>
       <%- include('partials/footer') %>
     </div>
+
+    <div id="confirmation-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Confirm Password Change</h2>
+        <p>Are you sure you want to change your password?</p>
+        <button id="confirm-button" class="profile-button">Yes</button>
+        <button id="cancel-button" class="profile-button secondary-button">No</button>
+      </div>
+    </div>
+
     <script src="/profile.js"></script>
   </body>
 </html>

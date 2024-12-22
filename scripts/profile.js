@@ -20,20 +20,32 @@ document.addEventListener("DOMContentLoaded", function () {
         .classList.add("active");
     });
   });
+
+  const changePasswordButton = document.getElementById("change-password-button");
+  const modal = document.getElementById("confirmation-modal");
+  const closeButton = document.querySelector(".close-button");
+  const confirmButton = document.getElementById("confirm-button");
+  const cancelButton = document.getElementById("cancel-button");
+
+  changePasswordButton.addEventListener("click", function () {
+    modal.style.display = "block";
+  });
+
+  closeButton.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  cancelButton.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  confirmButton.addEventListener("click", function () {
+    window.location.href = "/otp";
+  });
+
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
 });
-
-function calculateAge(birthDate) {
-  const today = new Date();
-  const birth = new Date(birthDate);
-  let age = today.getFullYear() - birth.getFullYear();
-  const monthDifference = today.getMonth() - birth.getMonth();
-
-  if (
-    monthDifference < 0 ||
-    (monthDifference === 0 && today.getDate() < birth.getDate())
-  ) {
-    age--;
-  }
-
-  return age;
-}

@@ -427,3 +427,73 @@ button:focus {
   color: #ffffff;
   transform: translateY(-5px);
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background */
+  backdrop-filter: blur(5px); /* Blur effect */
+}
+
+.modal-content {
+  background-color: #1e1e1e; /* Darker modal background */
+  margin: 10% auto; /* Center the modal */
+  padding: 30px; /* More padding */
+  border: none; /* Remove border */
+  width: 80%;
+  max-width: 400px; /* Smaller max-width */
+  border-radius: 12px; /* More rounded corners */
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+  animation: slideDown 0.4s ease; /* Slide down animation */
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-button {
+  color: #eaeaea;
+  float: right;
+  font-size: 24px; /* Smaller font size */
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #ff4a4a; /* Red color on hover */
+}
+
+.modal-content h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  color: #b3b3b3;
+  margin-bottom: 30px;
+}
+
+.modal-content .profile-button {
+  margin: 0 10px;
+  padding: 10px 20px;
+}
+
+.modal-content .secondary-button {
+  background-color: #ff4a4a; /* Red background for cancel button */
+}
