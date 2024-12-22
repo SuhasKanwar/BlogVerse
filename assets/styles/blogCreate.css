@@ -337,24 +337,6 @@ body {
     outline-offset: 2px;
 }
 
-.content-textarea::-webkit-scrollbar {
-    width: 8px;
-}
-
-.content-textarea::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.content-textarea::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 4px;
-}
-
-.content-textarea::-webkit-scrollbar-thumb:hover {
-    background: #a1a1a1;
-}
-
 .toolbar-button.loading {
     position: relative;
     pointer-events: none;

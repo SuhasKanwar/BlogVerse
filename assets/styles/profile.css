@@ -437,21 +437,21 @@ button:focus {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.7); /* Darker background */
-  backdrop-filter: blur(5px); /* Blur effect */
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
-  background-color: #1e1e1e; /* Darker modal background */
-  margin: 10% auto; /* Center the modal */
-  padding: 30px; /* More padding */
-  border: none; /* Remove border */
+  background-color: #1e1e1e;
+  margin: 10% auto;
+  padding: 30px;
+  border: none;
   width: 80%;
-  max-width: 400px; /* Smaller max-width */
-  border-radius: 12px; /* More rounded corners */
+  max-width: 400px;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow */
-  animation: slideDown 0.4s ease; /* Slide down animation */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: slideDown 0.4s ease;
 }
 
 @keyframes slideDown {
@@ -468,7 +468,7 @@ button:focus {
 .close-button {
   color: #eaeaea;
   float: right;
-  font-size: 24px; /* Smaller font size */
+  font-size: 24px;
   font-weight: bold;
   cursor: pointer;
   transition: color 0.3s ease;
@@ -476,7 +476,7 @@ button:focus {
 
 .close-button:hover,
 .close-button:focus {
-  color: #ff4a4a; /* Red color on hover */
+  color: #ff4a4a;
 }
 
 .modal-content h2 {
@@ -495,5 +495,5 @@ button:focus {
 }
 
 .modal-content .secondary-button {
-  background-color: #ff4a4a; /* Red background for cancel button */
+  background-color: #ff4a4a;
 }
