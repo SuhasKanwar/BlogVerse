@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
 });
 
 exports.generateOTP = () => {
-  return crypto.randomBytes(3).toString('hex');
+  return crypto.randomBytes(2).toString('hex');
 };
 
 exports.sendOTP = (email, otp) => {

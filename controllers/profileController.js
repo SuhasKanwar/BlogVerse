@@ -121,7 +121,7 @@ exports.profileUpdateHandler = async (req, res) => {
 
     user.profileImageURL = profileImageURL;
 
-    const updatedUser = await Users.findByIdAndUpdate(
+    await Users.findByIdAndUpdate(
       req.params.id, 
       user, 
       { 
