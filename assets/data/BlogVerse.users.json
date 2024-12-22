@@ -1,60 +1,135 @@
 [{
   "_id": {
-    "$oid": "6729133425d6e34bbc8717ff"
+    "$oid": "6768458dd990186e1b3edc6a"
   },
-  "fullName": "Suhas Kanwar",
-  "email": "suhas.kanwar@gmail.com",
-  "password": "09ef29259c32ce7b03062c74ad021cc019dea3d906198784f8e1aa3701faa931",
+  "fullName": "Alice Johnson",
+  "email": "alice.johnson@example.com",
+  "userName": "alice123",
+  "salt": "a1b2c3d4e5f6g7h8",
+  "password": "e3a9b8c4d7f2g6h5",
   "profileImageURL": "/avatars/default-avatar.png",
   "role": "USER",
-  "salt": "27$��be��\f\u0002\u0012w\u0019��",
-  "__v": 0
+  "isPremium": false,
+  "bio": "Tech enthusiast and avid traveler.",
+  "dateOfBirth": "1995-03-10T00:00:00.000Z",
+  "gender": "Female",
+  "occupation": "Software Engineer",
+  "location": "New York, USA",
+  "socials": {
+    "facebook": "https://facebook.com/alice.johnson",
+    "twitter": "https://twitter.com/alice123",
+    "instagram": "https://instagram.com/alice.johnson",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "github": "https://github.com/alicejohnson"
+  },
+  "otp": "",
+  "otpExpiry": null
 },
 {
   "_id": {
-    "$oid": "6729d5d71b94950cd52b418a"
+    "$oid": "6768458dd990186e1b3edc6b"
   },
-  "fullName": "test",
-  "email": "test@gmail.com",
-  "password": "325f776b7599966a5c92b8293f314a85811fb63b87ad1ff3aee36e14a0edf160",
+  "fullName": "John Doe",
+  "email": "john.doe@example.com",
+  "userName": "johnnyD",
+  "salt": "z8y7x6w5v4u3t2s1",
+  "password": "h1j2k3l4m5n6o7p8",
   "profileImageURL": "/avatars/default-avatar.png",
   "role": "USER",
-  "salt": "��~���a�_�S\t��K�",
-  "__v": 0
+  "isPremium": false,
+  "bio": "Aspiring musician and coffee lover.",
+  "dateOfBirth": "1990-08-22T00:00:00.000Z",
+  "gender": "Male",
+  "occupation": "Graphic Designer",
+  "location": "Los Angeles, USA",
+  "socials": {
+    "facebook": "https://facebook.com/john.doe",
+    "twitter": "https://twitter.com/johnnyD",
+    "instagram": "https://instagram.com/johndoe",
+    "linkedin": "",
+    "github": ""
+  },
+  "otp": "",
+  "otpExpiry": null
 },
 {
   "_id": {
-    "$oid": "6748740afec75695f5a519d8"
+    "$oid": "6768458dd990186e1b3edc6c"
   },
-  "fullName": "Suryansh Mahajan",
-  "email": "suryansh.mahajan.23cse@bmu.edu.in",
-  "password": "1a539d33bc56a3fe651d2eff347f713b337dd046ad2eb4a853aac3bdf344b05b",
+  "fullName": "Sophia Lee",
+  "email": "sophia.lee@example.com",
+  "userName": "sophieL",
+  "salt": "f4g5h6i7j8k9l0m1",
+  "password": "a1b2c3d4e5f6g7h8",
   "profileImageURL": "/avatars/default-avatar.png",
   "role": "USER",
-  "salt": "~f?\n�p�z���P�i\u000e",
-  "__v": 0
+  "isPremium": false,
+  "bio": "Fitness coach and healthy lifestyle advocate.",
+  "dateOfBirth": "1988-05-15T00:00:00.000Z",
+  "gender": "Female",
+  "occupation": "Fitness Trainer",
+  "location": "San Francisco, USA",
+  "socials": {
+    "facebook": "",
+    "twitter": "",
+    "instagram": "https://instagram.com/sophieL",
+    "linkedin": "https://linkedin.com/in/sophialee",
+    "github": ""
+  },
+  "otp": "",
+  "otpExpiry": null
 },
 {
   "_id": {
-    "$oid": "6748833bbbb7efb88c8e1f06"
+    "$oid": "6768458dd990186e1b3edc6d"
   },
-  "fullName": "Aditya Yadav",
-  "email": "aditya.yadav.23cse@bmu.edu.in",
-  "password": "a254d16b7a8710c8146e352d96b2f88c113aa137fa6d761eb424589dc445a65c",
+  "fullName": "Liam Smith",
+  "email": "liam.smith@example.com",
+  "userName": "liam_s",
+  "salt": "n6m5l4k3j2i1h0g9",
+  "password": "h2g3f4e5d6c7b8a9",
   "profileImageURL": "/avatars/default-avatar.png",
   "role": "USER",
-  "salt": "���7�a��5(}��2\u0006�",
-  "__v": 0
+  "isPremium": false,
+  "bio": "Love building robots and AI.",
+  "dateOfBirth": "1998-12-01T00:00:00.000Z",
+  "gender": "Male",
+  "occupation": "Robotics Engineer",
+  "location": "Boston, USA",
+  "socials": {
+    "facebook": "",
+    "twitter": "https://twitter.com/liam_s",
+    "instagram": "",
+    "linkedin": "https://linkedin.com/in/liamsmith",
+    "github": "https://github.com/liamsmith"
+  },
+  "otp": "",
+  "otpExpiry": null
 },
 {
   "_id": {
-    "$oid": "674a04cf8c126a4067f55aca"
+    "$oid": "6768458dd990186e1b3edc6e"
   },
-  "fullName": "Priyansh Singh",
-  "email": "priyansh.singh.23cse@bmu.edu.in",
-  "password": "9f0b181b3a73530f5935a985a9e76b7951757d33937d51266d39282df5f0dc4f",
+  "fullName": "Emily Davis",
+  "email": "emily.davis@example.com",
+  "userName": "emilyD",
+  "salt": "c3d2e1f0g9h8i7j6",
+  "password": "b9c8d7e6f5g4h3i2",
   "profileImageURL": "/avatars/default-avatar.png",
   "role": "USER",
-  "salt": ":�\u0000���\f��7,Su�QP",
-  "__v": 0
+  "isPremium": false,
+  "bio": "Bookworm and amateur writer.",
+  "dateOfBirth": "1996-09-19T00:00:00.000Z",
+  "gender": "Female",
+  "occupation": "Content Writer",
+  "location": "Seattle, USA",
+  "socials": {
+    "facebook": "",
+    "twitter": "https://twitter.com/emilyD",
+    "instagram": "",
+    "linkedin": "",
+    "github": ""
+  },
+  "otp": "",
+  "otpExpiry": null
 }]
