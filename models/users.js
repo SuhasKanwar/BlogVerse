@@ -90,21 +90,21 @@ userSchema.pre("save", function(next) {
     const user = this;
     
     if (!user.isModified("password")) {
-        return;
+        return next();
     }
     
-    const salt = randomBytes(16).toString();
+    const salt = randomBytes(16).toString('hex');
     const hashedPassword = createHmac("sha256", salt)
         .update(user.password)
         .digest("hex");
     
     this.salt = salt;
     this.password = hashedPassword;
-
+    
     next();
 });
 
-userSchema.static('matchPassword', async function(email, password) {
+userSchema.statics.matchPassword = async function(email, password) {
     const user = await this.findOne({ email });
     if (!user) {
         throw new error("User not found");
@@ -116,7 +116,7 @@ userSchema.static('matchPassword', async function(email, password) {
     const userProvidedHash = createHmac("sha256", salt)
         .update(password)
         .digest("hex");
-    
+
     if (hashedPassword !== userProvidedHash) {
         throw new error("Invalid password");
     }
@@ -124,7 +124,7 @@ userSchema.static('matchPassword', async function(email, password) {
     const token = createTokenForUser(user);
     
     return token;
-});
+};
 
 const users = mongoose.model("users", userSchema);
 

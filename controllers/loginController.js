@@ -24,8 +24,5 @@ exports.loginHandler = async (req, res) => {
     }
     catch(error){
         return res.redirect('/login');
-        // return res.render('/login', {
-        //     error: "Incorrect Email or Password"
-        // });
     }
 }
