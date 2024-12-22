@@ -18,13 +18,15 @@
                                         <div class="center-wrap">
                                             <div class="section text-center">
                                                 <h4 class="mb-4 pb-3">OTP Verification</h4>
-                                                <div class="form-group otp-input-group">
-                                                    <input type="text" maxlength="1" class="form-style otp-input" autocomplete="off">
-                                                    <input type="text" maxlength="1" class="form-style otp-input" autocomplete="off">
-                                                    <input type="text" maxlength="1" class="form-style otp-input" autocomplete="off">
-                                                    <input type="text" maxlength="1" class="form-style otp-input" autocomplete="off">
-                                                </div>	
-                                                <a href="#" class="btn mt-4" id="verifyOtp">Verify OTP</a>
+                                                <form action="/otp/validate" method="POST">
+                                                    <div class="form-group otp-input-group">
+                                                        <input type="text" name="otp-digit-1" maxlength="1" class="form-style otp-input" autocomplete="off" required>
+                                                        <input type="text" name="otp-digit-2" maxlength="1" class="form-style otp-input" autocomplete="off" required>
+                                                        <input type="text" name="otp-digit-3" maxlength="1" class="form-style otp-input" autocomplete="off" required>
+                                                        <input type="text" name="otp-digit-4" maxlength="1" class="form-style otp-input" autocomplete="off" required>
+                                                    </div>  
+                                                    <button type="submit" class="btn mt-4">Verify OTP</button>
+                                                </form>
                                                 <p class="mb-0 mt-4 text-center">
                                                     <a href="#" class="link" id="resendOtp">Resend OTP</a>
                                                 </p>

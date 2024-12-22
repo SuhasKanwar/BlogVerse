@@ -21,12 +21,5 @@ exports.sendOTP = (email, otp) => {
     text: `Your OTP is ${otp}. It is valid for 10 minutes.`,
   };
 
-  console.log("Sending email to:", email);
-  return transporter.sendMail(mailOptions)
-    .then(info => {
-      console.log("Email sent:", info.response);
-    })
-    .catch(error => {
-      console.error("Error sending email:", error);
-    });
+  transporter.sendMail(mailOptions);
 };
