@@ -69,14 +69,12 @@
           </button>
           <% if (user && currUser && user._id.toString() ===
           currUser._id.toString()) { %>
-          <a href="/login/otp" class="action-link">
-            <button
-              class="profile-button ternary-button"
-              aria-label="Change Password"
-            >
-              <i class="fas fa-lock"></i> Change Password
-            </button>
-          </a>
+          <button
+            class="profile-button ternary-button"
+            aria-label="Change Password"
+          >
+            <i class="fas fa-lock"></i> Change Password
+          </button>
           <% } %>
         </div>
 
@@ -105,9 +103,7 @@
               </div>
               <% } else { %>
               <p>Full name not provided.</p>
-              <% } %>
-
-              <% if (user.userName) { %>
+              <% } %> <% if (user.userName) { %>
               <div class="about-detail">
                 <i class="fas fa-user-tag"></i>
                 <div class="about-detail-text">
@@ -115,9 +111,7 @@
                   <span><%= user.userName %></span>
                 </div>
               </div>
-              <% } %>
-
-              <% if (user.email) { %>
+              <% } %> <% if (user.email) { %>
               <div class="about-detail">
                 <i class="fas fa-envelope"></i>
                 <div class="about-detail-text">
@@ -125,9 +119,7 @@
                   <span><%= user.email %></span>
                 </div>
               </div>
-              <% } %>
-
-              <% if (user.dateOfBirth) { %>
+              <% } %> <% if (user.dateOfBirth) { %>
               <div class="about-detail">
                 <i class="fas fa-birthday-cake"></i>
                 <div class="about-detail-text">
@@ -140,9 +132,7 @@
               </div>
               <% } else { %>
               <p>Age not specified.</p>
-              <% } %>
-
-              <% if (user.occupation) { %>
+              <% } %> <% if (user.occupation) { %>
               <div class="about-detail">
                 <i class="fas fa-briefcase"></i>
                 <div class="about-detail-text">
@@ -150,9 +140,7 @@
                   <span><%= user.occupation %></span>
                 </div>
               </div>
-              <% } %>
-
-              <% if (user.location) { %>
+              <% } %> <% if (user.location) { %>
               <div class="about-detail">
                 <i class="fas fa-map-marker-alt"></i>
                 <div class="about-detail-text">
@@ -224,26 +212,31 @@
 
         <div class="section-content" id="posts-section">
           <div class="user-content">
-            <% if (blogs && blogs.length > 0) { %>
-              <% blogs.forEach(blog => { %>
-                <a href="/blog/<%= blog._id %>">
-                  <div class="card">
-                    <div class="card-image-container">
-                      <img src="<%= blog.coverImageURL %>" alt="Cover Image" class="card-image" />
-                    </div>
-                    <div class="card-content">
-                      <h2 class="card-title"><%= blog.title %></h2>
-                      <p class="card-body"><%= blog.body.substring(0, 100) %>...</p>
-                      <p class="card-meta">
-                        <span class="card-date"><%= new Date(blog.createdAt).toLocaleDateString() %></span>
-                        <span class="card-category"><%= blog.category %></span>
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              <% }) %>
-            <% } else { %>
-              <p>No blogs to display.</p>
+            <% if (blogs && blogs.length > 0) { %> <% blogs.forEach(blog => { %>
+            <a href="/blog/<%= blog._id %>">
+              <div class="card">
+                <div class="card-image-container">
+                  <img
+                    src="<%= blog.coverImageURL %>"
+                    alt="Cover Image"
+                    class="card-image"
+                  />
+                </div>
+                <div class="card-content">
+                  <h2 class="card-title"><%= blog.title %></h2>
+                  <p class="card-body"><%= blog.body.substring(0, 100) %>...</p>
+                  <p class="card-meta">
+                    <span class="card-date"
+                      ><%= new Date(blog.createdAt).toLocaleDateString()
+                      %></span
+                    >
+                    <span class="card-category"><%= blog.category %></span>
+                  </p>
+                </div>
+              </div>
+            </a>
+            <% }) %> <% } else { %>
+            <p>No blogs to display.</p>
             <% } %>
           </div>
         </div>
