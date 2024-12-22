@@ -1,60 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include('partials/head') %>
-        <link rel="stylesheet" href="styles/blogCreate.css">
-    </head>
-    <body>
-        <%- include('partials/header') %>
-        <div class="container">
-            <form action="/blog/add-blog" method="post" enctype="multipart/form-data">
-                <main class="editor-container">
-                    <div class="editor-header">
-                        <button class="icon-button" type="submit">
-                            <i class="fas fa-plus editor-icon"></i>
+<head>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="styles/blogCreate.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('partials/header') %>
+    
+    <div class="min-h-screen bg-container py-8 px-4">
+        <form id="blogForm" action="/blog/add-blog" method="post" enctype="multipart/form-data" class="editor-form">
+            <div class="editor-card">
+                <!-- Header -->
+                <div class="editor-header">
+                    <div class="header-content">
+                        <div class="header-left">
+                            <button type="submit" class="publish-button">
+                                <i class="fas fa-paper-plane"></i>
+                                Publish
+                            </button>
+                        </div>
+                        <input 
+                            type="text" 
+                            placeholder="Add your title here..." 
+                            name="title" 
+                            class="title-input"
+                            aria-label="Blog Title"
+                        >
+                    </div>
+                    <div class="category-wrapper">
+                        <label class="metadata-label">
+                            <i class="fas fa-folder"></i>
+                            Category
+                        </label>
+                        <select name="category" class="category-select">
+                            <option value="Miscellaneous">Miscellaneous</option>
+                            <option value="Food Blogs">Food Blogs</option>
+                            <option value="Travel Blogs">Travel Blogs</option>
+                            <option value="Tech Blogs">Tech Blogs</option>
+                            <option value="Lifestyle Blogs">Lifestyle Blogs</option>
+                            <option value="Fashion Blogs">Fashion Blogs</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="image-upload-section">
+                    <label class="image-upload-label">
+                        <input type="file" name="coverImage" accept="image/*" hidden>
+                        <div class="upload-placeholder">
+                            <i class="fas fa-image"></i>
+                            <span>Add Featured Image</span>
+                            <p class="upload-hint">Drag and drop or click to upload</p>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="editor-toolbar">
+                    <div class="toolbar-group">
+                        <button type="button" class="toolbar-button" aria-label="Heading">
+                            <i class="fas fa-heading"></i>
                         </button>
-                        <input type="text" class="editor-title" placeholder="Add title" name="title" aria-label="Blog Title">
-                        <button class="icon-button">
-                            <i class="fas fa-ellipsis-h editor-icon"></i>
+                        <button type="button" class="toolbar-button" aria-label="Align Left">
+                            <i class="fas fa-align-left"></i>
+                        </button>
+                        <button type="button" class="toolbar-button" aria-label="Align Center">
+                            <i class="fas fa-align-center"></i>
+                        </button>
+                        <button type="button" class="toolbar-button" aria-label="Align Right">
+                            <i class="fas fa-align-right"></i>
                         </button>
                     </div>
-                
-                    <nav class="editor-toolbar" aria-label="Text formatting tools">
-                        <button aria-label="Align Left"><i class="fas fa-align-left"></i></button>
-                        <button aria-label="Align Center"><i class="fas fa-align-center"></i></button>
-                        <button aria-label="Align Right"><i class="fas fa-align-right"></i></button>
-                        <button aria-label="Bold"><i class="fas fa-bold"></i></button>
-                        <button aria-label="Italic"><i class="fas fa-italic"></i></button>
-                        <button aria-label="Underline"><i class="fas fa-underline"></i></button>
-                        <button aria-label="List"><i class="fas fa-list"></i></button>
-                        <button aria-label="Link"><i class="fas fa-link"></i></button>
-                        <button aria-label="AI Rewrite" class="ai-rewrite"><i class="fa-solid fa-feather"></i></button>
-                        <label class="file-upload">
-                            <input type="file" name="coverImage" aria-label="Image">
+                    <div class="toolbar-divider"></div>
+                    <div class="toolbar-group">
+                        <button type="button" class="toolbar-button" aria-label="Bold">
+                            <i class="fas fa-bold"></i>
+                        </button>
+                        <button type="button" class="toolbar-button" aria-label="Italic">
+                            <i class="fas fa-italic"></i>
+                        </button>
+                        <button type="button" class="toolbar-button" aria-label="Underline">
+                            <i class="fas fa-underline"></i>
+                        </button>
+                        <button type="button" class="toolbar-button" aria-label="Strike">
+                            <i class="fas fa-strikethrough"></i>
+                        </button>
+                    </div>
+                    <div class="toolbar-divider"></div>
+                    <div class="toolbar-group">
+                        <button type="button" class="toolbar-button" aria-label="Bullet List">
+                            <i class="fas fa-list-ul"></i>
+                        </button>
+                        <button type="button" class="toolbar-button" aria-label="Numbered List">
+                            <i class="fas fa-list-ol"></i>
+                        </button>
+                        <button type="button" class="toolbar-button" aria-label="Quote">
+                            <i class="fas fa-quote-right"></i>
+                        </button>
+                        <button type="button" class="toolbar-button" aria-label="Code">
+                            <i class="fas fa-code"></i>
+                        </button>
+                    </div>
+                    <div class="toolbar-divider"></div>
+                    <div class="toolbar-group">
+                        <button type="button" class="toolbar-button" aria-label="Link">
+                            <i class="fas fa-link"></i>
+                        </button>
+                        <button type="button" class="toolbar-button" aria-label="Image">
                             <i class="fas fa-image"></i>
-                        </label>
-                        <label for="category">
-                            Category:
-                            <select name="category" class="category-container">
-                                <option value="Miscelaneous">Miscelaneous</option>
-                                <option value="Food Blogs">Food Blogs</option>
-                                <option value="Travel Blogs">Travel Blogs</option>
-                                <option value="Tech Blogs">Tech Blogs</option>
-                                <option value="Lifestyle Blogs">Lifestyle Blogs</option>
-                                <option value="Fashion Blogs">Fashion Blogs</option>
-                            </select>
-                        </label>
-                    </nav>
-                
-                    <section class="editor-content">
-                        <textarea class="editor-textarea" name="body" placeholder="Type the content for the blog here" aria-label="Blog content"></textarea>
-                    </section>
-                </main>
-            </form>
-        </div>
-    
-        <%- include('partials/footer') %>
+                        </button>
+                        <button type="button" class="toolbar-button" aria-label="Video">
+                            <i class="fas fa-video"></i>
+                        </button>
+                    </div>
+                    <div class="toolbar-divider"></div>
+                    <div class="toolbar-group">
+                        <button type="button" class="toolbar-button ai-rewrite" aria-label="AI Rewrite">
+                            <i class="fas fa-magic"></i>
+                        </button>
+                        <button type="button" class="toolbar-button" aria-label="Undo">
+                            <i class="fas fa-undo"></i>
+                        </button>
+                        <button type="button" class="toolbar-button" aria-label="Redo">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                    </div>
+                </div>
 
-        <script src="blogCreate.js"></script>
-    </body>
+                <div class="editor-content">
+                    <textarea 
+                        name="body" 
+                        class="content-textarea" 
+                        placeholder="Start writing your amazing blog post..."
+                        aria-label="Blog content"
+                    ></textarea>
+                </div>
+
+                <div class="word-count">
+                    <span id="wordCount">0 words</span>
+                    <span>•</span>
+                    <span id="charCount">0 characters</span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal for missing title or content -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <button id="closeModal" class="close-modal">Close</button>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>
+    <script src="blogCreate.js"></script>
+</body>
 </html>
