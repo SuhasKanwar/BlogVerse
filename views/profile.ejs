@@ -62,7 +62,7 @@
           </a>
           <% } %>
           <button
-            class="profile-button secondary-button"
+            class="profile-button secondary-button share-button"
             aria-label="Share Profile"
           >
             <i class="fas fa-share-nodes"></i> Share Profile
@@ -271,15 +271,72 @@
       <%- include('partials/footer') %>
     </div>
 
-    <div id="confirmation-modal" class="modal">
-      <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h2>Confirm Password Change</h2>
-        <p>Are you sure you want to change your password?</p>
-        <button id="confirm-button" class="profile-button">Yes</button>
-        <button id="cancel-button" class="profile-button secondary-button">No</button>
-      </div>
-    </div>
+    <dialog id="share-dialog-box" class="modal-dialog">
+      <form method="dialog">
+        <header class="modal-header">
+          <h2>Share the Link</h2>
+          <button type="button" class="close-button" aria-label="Close dialog">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M18 6L6 18M6 6l12 12"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </header>
+        <div class="copy-link-container">
+          <input
+            type="text"
+            id="copy-link-input"
+            value="https://blogverse-w8hy.onrender.com/profile/<%= user._id %>"
+            class="copy-input"
+            readonly
+          />
+          <button type="button" class="copy-button" data-copied-text="Copied!">
+            Copy Link
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="change-password-dialog-box" class="modal-dialog">
+      <form id="change-password-form" method="dialog">
+        <header class="modal-header">
+          <h2>Change Password</h2>
+          <button type="button" class="close-button" aria-label="Close dialog">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M18 6L6 18M6 6l12 12"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </header>
+        <p class="dialog-message">
+          Are you sure you want to change your password?
+        </p>
+        <div class="dialog-actions">
+          <button type="submit" class="confirm-button">Confirm</button>
+          <button type="button" class="cancel-button">Cancel</button>
+        </div>
+      </form>
+    </dialog>
 
     <script src="/profile.js"></script>
   </body>

@@ -428,72 +428,168 @@ button:focus {
   transform: translateY(-5px);
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
-}
-
-.modal-content {
-  background-color: #1e1e1e;
-  margin: 10% auto;
-  padding: 30px;
+.modal-dialog {
+  width: 90%;
+  max-width: 28rem;
+  margin: 0 auto;
   border: none;
-  width: 80%;
-  max-width: 400px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  animation: slideDown 0.4s ease;
+  border-radius: 0.75rem;
+  background: rgb(24, 24, 27);
+  color: rgb(244, 244, 245);
+  padding: 0;
+  position: fixed;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modalFadeIn 0.2s ease-out;
 }
 
-@keyframes slideDown {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.modal-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  animation: backdropFadeIn 0.2s ease-out;
+}
+
+.modal-dialog form {
+  padding: 1.5rem;
+}
+
+.modal-header {
+  background: rgb(24, 24, 27);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(63, 63, 70);
+}
+
+.modal-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(244, 244, 245);
+  margin: 0;
 }
 
 .close-button {
-  color: #eaeaea;
-  float: right;
-  font-size: 24px;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: rgb(161, 161, 170);
+  padding: 0.25rem;
+  border-radius: 0.5rem;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.2s;
 }
 
-.close-button:hover,
-.close-button:focus {
-  color: #ff4a4a;
+.close-button:hover {
+  color: rgb(244, 244, 245);
+  background: rgb(39, 39, 42);
 }
 
-.modal-content h2 {
-  color: #ffffff;
-  margin-bottom: 20px;
+.copy-link-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
-.modal-content p {
-  color: #b3b3b3;
-  margin-bottom: 30px;
+.copy-input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  background: rgb(39, 39, 42);
+  border: 1px solid rgb(63, 63, 70);
+  border-radius: 0.5rem;
+  color: rgb(244, 244, 245);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s;
 }
 
-.modal-content .profile-button {
-  margin: 0 10px;
-  padding: 10px 20px;
+.copy-input:focus {
+  border-color: rgb(59, 130, 246);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
 }
 
-.modal-content .secondary-button {
-  background-color: #ff4a4a;
+.copy-button {
+  padding: 0.5rem 1rem;
+  background: rgb(59, 130, 246);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+  background: rgb(37, 99, 235);
+}
+
+.copy-button.copied {
+  background: rgb(34, 197, 94);
+}
+
+.dialog-message {
+  color: rgb(161, 161, 170);
+  margin-bottom: 1.5rem;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.confirm-button {
+  padding: 0.5rem 1rem;
+  background: rgb(34, 197, 94);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.confirm-button:hover {
+  background: rgb(22, 163, 74);
+}
+
+.cancel-button {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: rgb(161, 161, 170);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-button:hover {
+  background: rgb(39, 39, 42);
+  color: rgb(244, 244, 245);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes backdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
