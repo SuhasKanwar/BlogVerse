@@ -13,7 +13,7 @@ exports.generateOTP = () => {
   return crypto.randomBytes(2).toString('hex');
 };
 
-exports.sendOTP = (email, otp) => {
+exports.sendOTP = async (email, otp) => {
   const mailOptions = {
     from: process.env.EMAIL,
     to: email,
@@ -21,5 +21,5 @@ exports.sendOTP = (email, otp) => {
     text: `Your OTP is ${otp}. It is valid for 10 minutes.`,
   };
 
-  transporter.sendMail(mailOptions);
+  await transporter.sendMail(mailOptions);
 };

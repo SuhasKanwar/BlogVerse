@@ -10,15 +10,12 @@ const PORT = process.env.PORT || 9000;
 // Connection
 const uri = process.env.MONGO_DB_CONNECTION_URI;
 
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log("MongoDB Connected Successfully!!!");
-}).catch((error) => {
-  console.error("Error connecting MongoDB", error);
-});
-
+mongoose.connect(uri)
+  .then(() => {
+    console.log("MongoDB Connected Successfully!!!");
+  }).catch((error) => {
+    console.error("Error connecting MongoDB", error);
+  });
 
 // Setting up path and view engine
 app.set("view engine", "ejs");
