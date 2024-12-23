@@ -30,7 +30,7 @@
                                 <a href="blog/<%= blog._id %>">
                                     <div class="card">
                                         <div class="cover-img-container">
-                                            <img src="<%= blog.coverImageURL || 'images/default-cover.jpg' %>" alt="Blog Card Cover" class="cover-img">
+                                            <img src="<%= blog.coverImageURL || 'images/default-cover.jpg' %>" alt="Blog Card Cover" class="cover-img" loading="lazy">
                                         </div>
                                         <h3 class="blog-head"><%= blog.title.length > 20 ? blog.title.substring(0, 20) + '...' : blog.title %></h3>
                                         <p class="blog-description">
@@ -39,7 +39,7 @@
                                         <p class="post-date">Posted on <%= blog.createdAt ? blog.createdAt.toLocaleDateString() : 'Unknown Date' %></p>
                                         <div class="author-details">
                                             <a href="/profile/<%= blog.createdBy._id %>" class="author-profile-link">
-                                                <img src="<%= blog.createdBy.profileImageURL || 'images/default-profile.jpg' %>" alt="<%= blog.createdBy.fullName || 'Unknown Author' %>'s profile" class="author-profile-img">
+                                                <img src="<%= blog.createdBy.profileImageURL || 'images/default-profile.jpg' %>" alt="<%= blog.createdBy.fullName || 'Unknown Author' %>'s profile" class="author-profile-img" loading="lazy">
                                             </a>
                                             <p class="author-name"><%= blog.createdBy.fullName || 'Unknown Author' %></p>
                                         </div>
