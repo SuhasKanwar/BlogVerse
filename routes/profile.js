@@ -8,7 +8,7 @@ const profileController = require('../controllers/profileController');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.resolve('./public/avatars'));
+        cb(null, path.resolve('../public/avatars'));
     },
     filename: (req, file, cb) => {
         cb(null, Date.now() + path.extname(file.originalname));
