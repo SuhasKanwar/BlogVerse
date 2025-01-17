@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { createHmac, randomBytes, hash } = require("crypto");
+const { createHmac, randomBytes } = require("crypto");
 const { error } = require('console');
 const { createTokenForUser } = require('../utils/authentication');
 
@@ -47,7 +47,7 @@ const userSchema = mongoose.Schema({
     },
     gender: {
         type: String,
-        enum: ["Male", "Female"],
+        enum: ["Male", "Female"]
     },
     occupation: {
         type: String
